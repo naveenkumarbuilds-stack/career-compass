@@ -11,7 +11,7 @@ npm ci
 npm run dev -- --host 127.0.0.1 --port 5174
 ```
 
-Open http://127.0.0.1:5174. The current workspace already contains installed dependencies and an ignored `.env.local` with the existing project's public Supabase configuration. A running preview may already be available there.
+Open http://127.0.0.1:5174. The saved local copy contains an ignored `.env.local` with the existing project's public Supabase configuration. Dependencies are not included in Git; install them using `npm ci` before starting this copy.
 
 For another machine, copy `.env.example` to `.env.local` and set:
 - `VITE_SUPABASE_URL`: Supabase public project URL.
@@ -73,5 +73,5 @@ Browser checks: English/Kannada home, persisted guest language, translated signu
 
 ## Delivery boundaries
 
-This is the completed local working copy. The original Lovable editor is not automatically updated by these local changes. No remote Git repository was attached, no original project history was rewritten and nothing was published. To sync later, connect the Lovable project to a Git repository and apply/review these changes there. Avoid force pushes or rewriting published history.
+This is the completed local working copy. The original Lovable editor is not automatically updated by these local changes. The source is backed up at https://github.com/naveenkumarbuilds-stack/career-compass. Existing repository history was preserved. The website has not been deployed, and this repository is not automatically connected to the original Lovable editor. Avoid force pushes or rewriting published history.
 
