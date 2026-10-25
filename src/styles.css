@@ -1,0 +1,175 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * CareerCompass design system.
+ * Brand values are supplied by the client and are authoritative, so they are
+ * kept as exact hex values. Components must only use these semantic tokens.
+ */
+
+@theme inline {
+  --font-display: "Baloo Tamma 2", "Nunito", system-ui, sans-serif;
+  --font-sans: "Nunito", "Noto Sans Kannada", system-ui, sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+
+  --color-navy: var(--brand-navy);
+  --color-indigo: var(--brand-indigo);
+  --color-hero: var(--hero);
+  --color-hero-foreground: var(--hero-foreground);
+  --color-hero-muted: var(--hero-muted);
+  --color-violet: var(--brand-violet);
+  --color-teal: var(--brand-teal);
+  --color-amber: var(--brand-amber);
+  --color-coral: var(--brand-coral);
+  --color-neutral-soft: var(--brand-neutral);
+  --color-success: var(--brand-teal);
+  --color-review: var(--review);
+  --color-review-foreground: var(--review-foreground);
+
+  --color-chart-1: var(--brand-blue);
+  --color-chart-2: var(--brand-teal);
+  --color-chart-3: var(--brand-amber);
+  --color-chart-4: var(--brand-violet);
+  --color-chart-5: var(--brand-coral);
+  --color-sidebar: var(--card);
+  --color-sidebar-foreground: var(--foreground);
+  --color-sidebar-primary: var(--primary);
+  --color-sidebar-primary-foreground: var(--primary-foreground);
+  --color-sidebar-accent: var(--muted);
+  --color-sidebar-accent-foreground: var(--foreground);
+  --color-sidebar-border: var(--border);
+  --color-sidebar-ring: var(--ring);
+}
+
+:root {
+  --brand-navy: #0b1b3f;
+  --brand-indigo: #3730a3;
+  --brand-blue: #2563eb;
+  --brand-violet: #7c3aed;
+  --brand-teal: #0d9488;
+  --brand-amber: #f59e0b;
+  --brand-coral: #f97316;
+  --brand-neutral: #f5f7fb;
+  --brand-white: #ffffff;
+
+  --radius: 1rem;
+  --background: var(--brand-neutral);
+  --foreground: var(--brand-navy);
+  --card: var(--brand-white);
+  --card-foreground: var(--brand-navy);
+  --popover: var(--brand-white);
+  --popover-foreground: var(--brand-navy);
+  --primary: var(--brand-blue);
+  --primary-foreground: var(--brand-white);
+  --secondary: #e8ecf8;
+  --secondary-foreground: var(--brand-indigo);
+  --muted: #eef1f8;
+  --muted-foreground: #4a5578;
+  --accent: #e9e7fb;
+  --accent-foreground: var(--brand-indigo);
+  --destructive: #c2410c;
+  --destructive-foreground: var(--brand-white);
+  --border: #dde3f0;
+  --input: #c9d1e4;
+  --ring: var(--brand-blue);
+
+  --hero: var(--brand-indigo);
+  --hero-foreground: var(--brand-white);
+  --hero-muted: #d7d6f7;
+  --review: #fff4dc;
+  --review-foreground: #7a4a00;
+
+  --gradient-hero: linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-indigo) 60%, var(--brand-violet) 130%);
+  --shadow-card: 0 1px 2px rgb(11 27 63 / 0.06), 0 8px 24px -12px rgb(11 27 63 / 0.18);
+  --shadow-lift: 0 2px 4px rgb(11 27 63 / 0.08), 0 18px 36px -16px rgb(55 48 163 / 0.35);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    font-size: 17px;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+  }
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    line-height: 1.15;
+  }
+  :focus-visible {
+    outline: 3px solid var(--ring);
+    outline-offset: 2px;
+  }
+}
+
+@utility bg-hero-gradient {
+  background-image: var(--gradient-hero);
+}
+@utility shadow-card {
+  box-shadow: var(--shadow-card);
+}
+@utility shadow-lift {
+  box-shadow: var(--shadow-lift);
+}
+
+@keyframes cc-rise {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes cc-spin-slow {
+  from { transform: rotate(-12deg); }
+  50% { transform: rotate(12deg); }
+  to { transform: rotate(-12deg); }
+}
+@utility animate-rise {
+  animation: cc-rise 0.6s ease-out both;
+}
+@utility animate-needle {
+  animation: cc-spin-slow 6s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
