@@ -2,7 +2,7 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState, type FormEvent } from "react";
 import { MailCheck, ShieldCheck } from "lucide-react";
 import { toast } from "sonner";
-import { isSupabaseConfigured, supabase } from "@/integrations/supabase/client";
+import { supabase } from "@/integrations/supabase/client";
 import { pageMeta, useI18n, type Lang } from "@/i18n";
 import { useAuth } from "@/lib/auth";
 import { authErrorKey, fieldErrors, safeRedirect, signupSchema } from "@/lib/validation";
@@ -14,12 +14,12 @@ type Stage = "after_10th" | "after_12th";
 
 export const Route = createFileRoute("/signup")({
   validateSearch: (s: Record<string, unknown>): { redirect?: string } =>
-    typeof s["redirect"] === "string" ? { redirect: s["redirect"] } : {},
+    typeof s.redirect === "string" ? { redirect: s.redirect } : {},
   head: () => pageMeta("meta.signupTitle", "meta.signupDescription"),
   component: Signup,
 });
 
-export function Signup() {
+function Signup() {
   const { t, lang, setLang } = useI18n();
   const { session, ready } = useAuth();
   const search = Route.useSearch();
@@ -40,10 +40,6 @@ export function Signup() {
   const [sentTo, setSentTo] = useState<string | null>(null);
 
   useEffect(() => {
-    setForm(current => ({ ...current, preferred_language: lang }));
-  }, [lang]);
-
-  useEffect(() => {
     if (ready && session && !sentTo) navigate({ to: target, replace: true });
   }, [ready, session, sentTo, target, navigate]);
 
@@ -51,7 +47,6 @@ export function Signup() {
 
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
-    if (!isSupabaseConfigured) { setFormError("errors.notConfigured"); return; }
     setFormError(null);
     const parsed = signupSchema.safeParse(form);
     if (!parsed.success) return setErrors(fieldErrors(parsed.error));
@@ -100,27 +95,26 @@ export function Signup() {
 
   return (
     <AuthCard title={t("auth.signupTitle")} subtitle={t("auth.signupSubtitle")}>
-      {!isSupabaseConfigured && <p role="status" className="mb-4 text-destructive">{t("errors.notConfigured")}</p>}
       <form onSubmit={onSubmit} noValidate className="space-y-5">
-        <FormField id="full_name" label={t("auth.nameLabel")} error={errors["full_name"]}>
+        <FormField id="full_name" label={t("auth.nameLabel")} error={errors.full_name}>
           <input id="full_name" autoComplete="name" maxLength={100} className={inputClass} value={form.full_name}
-            onChange={(e) => set("full_name", e.target.value)} aria-invalid={!!errors["full_name"]}
-            aria-describedby={describedBy("full_name", errors["full_name"])} />
+            onChange={(e) => set("full_name", e.target.value)} aria-invalid={!!errors.full_name}
+            aria-describedby={describedBy("full_name", errors.full_name)} />
         </FormField>
-        <FormField id="email" label={t("auth.emailLabel")} error={errors["email"]}>
+        <FormField id="email" label={t("auth.emailLabel")} error={errors.email}>
           <input id="email" type="email" autoComplete="email" className={inputClass} value={form.email}
-            onChange={(e) => set("email", e.target.value)} aria-invalid={!!errors["email"]}
-            aria-describedby={describedBy("email", errors["email"])} />
+            onChange={(e) => set("email", e.target.value)} aria-invalid={!!errors.email}
+            aria-describedby={describedBy("email", errors.email)} />
         </FormField>
-        <FormField id="password" label={t("auth.passwordLabel")} hint={t("auth.passwordHint")} error={errors["password"]}>
+        <FormField id="password" label={t("auth.passwordLabel")} hint={t("auth.passwordHint")} error={errors.password}>
           <PasswordInput id="password" value={form.password} onChange={(v) => set("password", v)} show={show} setShow={setShow}
-            error={errors["password"]} hint={t("auth.passwordHint")} autoComplete="new-password" />
+            error={errors.password} hint={t("auth.passwordHint")} autoComplete="new-password" />
         </FormField>
         <ChoiceGroup name="preferred_language" legend={t("auth.languageLabel")} value={form.preferred_language}
-          error={errors["preferred_language"]}
+          error={errors.preferred_language}
           options={[{ value: "en", label: t("language.en"), lang: "en" }, { value: "kn", label: t("language.kn"), lang: "kn" }]}
-          onChange={(v) => { set("preferred_language", v); setLang(v); }} />
-        <ChoiceGroup name="stage" legend={t("auth.stageLabel")} value={form.stage} error={errors["stage"]}
+          onChange={(v) => set("preferred_language", v)} />
+        <ChoiceGroup name="stage" legend={t("auth.stageLabel")} value={form.stage} error={errors.stage}
           options={[{ value: "after_10th", label: t("stage.after_10th") }, { value: "after_12th", label: t("stage.after_12th") }]}
           onChange={(v) => set("stage", v)} />
 
@@ -128,14 +122,14 @@ export function Signup() {
           <label className="flex cursor-pointer items-start gap-3 rounded-xl border-2 border-input bg-card p-4">
             <input type="checkbox" checked={form.guardian_permission_ack}
               onChange={(e) => set("guardian_permission_ack", e.target.checked)}
-              aria-invalid={!!errors["guardian_permission_ack"]}
-              aria-describedby={errors["guardian_permission_ack"] ? "guardian-error" : undefined}
+              aria-invalid={!!errors.guardian_permission_ack}
+              aria-describedby={errors.guardian_permission_ack ? "guardian-error" : undefined}
               className="mt-1 size-5 shrink-0 accent-primary" />
             <span className="font-semibold">{t("auth.guardianLabel")}</span>
           </label>
-          {errors["guardian_permission_ack"] && (
+          {errors.guardian_permission_ack && (
             <p id="guardian-error" role="alert" className="text-sm font-semibold text-destructive">
-              {t(errors["guardian_permission_ack"])}
+              {t(errors.guardian_permission_ack)}
             </p>
           )}
         </div>
@@ -153,7 +147,7 @@ export function Signup() {
             {t(formError)}
           </p>
         )}
-        <Button type="submit" size="lg" className="w-full" disabled={busy || !isSupabaseConfigured}>
+        <Button type="submit" size="lg" className="w-full" disabled={busy}>
           {busy ? t("auth.signingUp") : t("auth.signupButton")}
         </Button>
       </form>
@@ -166,4 +160,3 @@ export function Signup() {
     </AuthCard>
   );
 }
-

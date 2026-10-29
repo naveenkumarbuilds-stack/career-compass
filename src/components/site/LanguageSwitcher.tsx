@@ -3,30 +3,24 @@ import { supabase } from "@/integrations/supabase/client";
 import { LANGS, useI18n, type Lang } from "@/i18n";
 import { useAuth } from "@/lib/auth";
 import { cn } from "@/lib/utils";
-import { useState } from "react";
 
 export function LanguageSwitcher({ className }: { className?: string }) {
   const { lang, setLang, t } = useI18n();
   const { session, profile, setProfile } = useAuth();
-  const [busy, setBusy] = useState(false);
 
   async function choose(l: Lang) {
-    if (l === lang || busy) return;
+    if (l === lang) return;
+    setLang(l);
     if (session && profile) {
-      setBusy(true);
-      try {
       const { data, error } = await supabase
         .from("profiles")
         .update({ preferred_language: l })
         .eq("id", session.user.id)
         .select()
         .single();
-      if (error || !data) { toast.error(t("errors.generic")); return; }
-      setProfile(data);
-      } catch { toast.error(t("errors.network")); return; }
-      finally { setBusy(false); }
+      if (error) toast.error(t("errors.generic"));
+      else if (data) setProfile(data);
     }
-    setLang(l);
   }
 
   return (
@@ -37,10 +31,9 @@ export function LanguageSwitcher({ className }: { className?: string }) {
           type="button"
           lang={l}
           aria-pressed={lang === l}
-          disabled={busy}
           onClick={() => void choose(l)}
           className={cn(
-            "rounded-lg px-2 py-1 text-xs font-bold transition-colors sm:px-3 sm:text-sm disabled:opacity-50",
+            "rounded-lg px-3 py-1 text-sm font-bold transition-colors",
             lang === l ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground",
           )}
         >
@@ -50,4 +43,3 @@ export function LanguageSwitcher({ className }: { className?: string }) {
     </div>
   );
 }
-

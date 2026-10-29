@@ -6,7 +6,7 @@ import { ComingSoonPage } from "@/components/site/ComingSoonPage";
 
 export const Route = createFileRoute("/explore")({
   validateSearch: (s: Record<string, unknown>): { category?: CategorySlug } =>
-    CATEGORY_SLUGS.includes(s["category"] as CategorySlug) ? { category: s["category"] as CategorySlug } : {},
+    CATEGORY_SLUGS.includes(s.category as CategorySlug) ? { category: s.category as CategorySlug } : {},
   head: () => pageMeta("meta.exploreTitle", "meta.exploreDescription"),
   component: Explore,
 });
@@ -23,4 +23,3 @@ function Explore() {
     />
   );
 }
-

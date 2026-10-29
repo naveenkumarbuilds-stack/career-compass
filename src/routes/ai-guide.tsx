@@ -7,4 +7,3 @@ export const Route = createFileRoute("/ai-guide")({
   head: () => pageMeta("meta.aiTitle", "meta.aiDescription"),
   component: () => <ComingSoonPage icon={Sparkles} titleKey="comingSoon.aiTitle" bodyKey="comingSoon.aiBody" />,
 });
-

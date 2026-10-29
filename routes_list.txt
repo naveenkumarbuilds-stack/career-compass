@@ -1,0 +1,29 @@
+﻿
+
+    Directory: career-compass\src\routes
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        27-10-2026     21:37                careers
+d-----        27-10-2026     21:37                exams
+d-----        27-10-2026     20:24                _authenticated
+-a----        27-10-2026     21:59           2121 about.tsx
+-a----        27-10-2026     21:55           4000 after-10th.tsx
+-a----        27-10-2026     21:55           4234 after-12th.tsx
+-a----        27-10-2026     20:24            433 ai-guide.tsx
+-a----        27-10-2026     21:58           8913 assessment.tsx
+-a----        27-10-2026     21:56           5518 careers.$slug.tsx
+-a----        27-10-2026     22:05              9 careers.tsx
+-a----        27-10-2026     21:59           1443 contact.tsx
+-a----        27-10-2026     21:57           3799 exams.$slug.tsx
+-a----        27-10-2026     21:57           4845 exams.tsx
+-a----        27-10-2026     20:24            959 explore.tsx
+-a----        27-10-2026     21:44          11127 index.tsx
+-a----        27-10-2026     20:24           5496 login.tsx
+-a----        27-10-2026     20:24            835 README.md
+-a----        27-10-2026     21:59           2376 resources.tsx
+-a----        27-10-2026     21:58           4455 roadmaps.tsx
+-a----        27-10-2026     21:59           3066 saved.tsx
+-a----        27-10-2026     20:24           7360 signup.tsx
+-a----        27-10-2026     20:24           4170 __root.tsx

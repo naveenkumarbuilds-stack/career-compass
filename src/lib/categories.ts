@@ -14,4 +14,3 @@ export const CATEGORIES = [
 
 export type CategorySlug = (typeof CATEGORIES)[number]["slug"];
 export const CATEGORY_SLUGS = CATEGORIES.map((c) => c.slug) as CategorySlug[];
-

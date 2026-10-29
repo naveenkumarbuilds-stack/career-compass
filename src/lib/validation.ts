@@ -15,7 +15,7 @@ export const signupSchema = z.object({
   password: z.string().min(8, "validation.passwordShort").max(72, "validation.passwordLong"),
   preferred_language: langSchema,
   stage: stageSchema,
-  guardian_permission_ack: z.literal(true, { errorMap: () => ({ message: "validation.guardianRequired" }) }),
+  guardian_permission_ack: z.literal(true, { message: "validation.guardianRequired" }),
 });
 
 export const loginSchema = z.object({
@@ -41,17 +41,13 @@ export function fieldErrors(error: z.ZodError): Record<string, string> {
 /** Only allow same-origin relative paths as post-login destinations. */
 export function safeRedirect(value: unknown, fallback = "/profile"): string {
   if (typeof value !== "string") return fallback;
-  if (!value.startsWith("/") || value.startsWith("//") || /[\\\u0000-\u0020]/.test(value)) return fallback;
-  try {
-    const destination = new URL(value, "https://careercompass.invalid");
-    if (destination.origin !== "https://careercompass.invalid") return fallback;
-  } catch { return fallback; }
+  if (!value.startsWith("/") || value.startsWith("//") || value.startsWith("/\\")) return fallback;
   if (value.startsWith("/login") || value.startsWith("/signup")) return fallback;
   return value;
 }
 
 /** Map auth provider errors to translation keys; never show raw provider text. */
-export function authErrorKey(err: { message?: string | undefined; code?: string | undefined; status?: number | undefined } | null | undefined): string {
+export function authErrorKey(err: { message?: string; code?: string; status?: number } | null | undefined): string {
   if (!err) return "errors.generic";
   const code = err.code ?? "";
   const msg = (err.message ?? "").toLowerCase();
@@ -65,4 +61,3 @@ export function authErrorKey(err: { message?: string | undefined; code?: string 
   if (msg.includes("fetch") || msg.includes("network")) return "errors.network";
   return "errors.generic";
 }
-

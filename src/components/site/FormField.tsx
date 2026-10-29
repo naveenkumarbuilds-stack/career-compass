@@ -15,8 +15,8 @@ export function FormField({
 }: {
   id: string;
   label: string;
-  hint?: string | undefined;
-  error?: string | undefined;
+  hint?: string;
+  error?: string;
   children: ReactNode;
 }) {
   const { t } = useI18n();
@@ -57,7 +57,7 @@ export function ChoiceGroup<T extends string>({
   value: T | "";
   options: { value: T; label: string; lang?: string }[];
   onChange: (v: T) => void;
-  error?: string | undefined;
+  error?: string;
 }) {
   const { t } = useI18n();
   return (
@@ -92,4 +92,3 @@ export function ChoiceGroup<T extends string>({
     </fieldset>
   );
 }
-

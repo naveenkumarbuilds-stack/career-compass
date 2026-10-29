@@ -11,12 +11,25 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as After10thRouteImport } from './routes/after-10th'
+import { Route as After12thRouteImport } from './routes/after-12th'
 import { Route as AiGuideRouteImport } from './routes/ai-guide'
+import { Route as AssessmentRouteImport } from './routes/assessment'
+import { Route as CareersRouteImport } from './routes/careers'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ExamsRouteImport } from './routes/exams'
 import { Route as ExploreRouteImport } from './routes/explore'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as ResourcesRouteImport } from './routes/resources'
+import { Route as RoadmapsRouteImport } from './routes/roadmaps'
+import { Route as SavedRouteImport } from './routes/saved'
 import { Route as SignupRouteImport } from './routes/signup'
 import { Route as AuthenticatedProfileRouteImport } from './routes/_authenticated/profile'
+import { Route as CareersIndexRouteImport } from './routes/careers/index'
+import { Route as CareersSlugRouteImport } from './routes/careers.$slug'
+import { Route as ExamsIndexRouteImport } from './routes/exams/index'
+import { Route as ExamsSlugRouteImport } from './routes/exams.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -27,9 +40,39 @@ const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
   id: '/_authenticated',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const After10thRoute = After10thRouteImport.update({
+  id: '/after-10th',
+  path: '/after-10th',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const After12thRoute = After12thRouteImport.update({
+  id: '/after-12th',
+  path: '/after-12th',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AiGuideRoute = AiGuideRouteImport.update({
   id: '/ai-guide',
   path: '/ai-guide',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AssessmentRoute = AssessmentRouteImport.update({
+  id: '/assessment',
+  path: '/assessment',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CareersRoute = CareersRouteImport.update({
+  id: '/careers',
+  path: '/careers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ExamsRoute = ExamsRouteImport.update({
@@ -47,6 +90,21 @@ const LoginRoute = LoginRouteImport.update({
   path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ResourcesRoute = ResourcesRouteImport.update({
+  id: '/resources',
+  path: '/resources',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RoadmapsRoute = RoadmapsRouteImport.update({
+  id: '/roadmaps',
+  path: '/roadmaps',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SavedRoute = SavedRouteImport.update({
+  id: '/saved',
+  path: '/saved',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SignupRoute = SignupRouteImport.update({
   id: '/signup',
   path: '/signup',
@@ -57,74 +115,177 @@ const AuthenticatedProfileRoute = AuthenticatedProfileRouteImport.update({
   path: '/profile',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const CareersIndexRoute = CareersIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => CareersRoute,
+} as any)
+const CareersSlugRoute = CareersSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => CareersRoute,
+} as any)
+const ExamsIndexRoute = ExamsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ExamsRoute,
+} as any)
+const ExamsSlugRoute = ExamsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => ExamsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/after-10th': typeof After10thRoute
+  '/after-12th': typeof After12thRoute
   '/ai-guide': typeof AiGuideRoute
-  '/exams': typeof ExamsRoute
+  '/assessment': typeof AssessmentRoute
+  '/careers': typeof CareersRouteWithChildren
+  '/contact': typeof ContactRoute
+  '/exams': typeof ExamsRouteWithChildren
   '/explore': typeof ExploreRoute
   '/login': typeof LoginRoute
+  '/resources': typeof ResourcesRoute
+  '/roadmaps': typeof RoadmapsRoute
+  '/saved': typeof SavedRoute
   '/signup': typeof SignupRoute
   '/profile': typeof AuthenticatedProfileRoute
+  '/careers/$slug': typeof CareersSlugRoute
+  '/exams/$slug': typeof ExamsSlugRoute
+  '/careers/': typeof CareersIndexRoute
+  '/exams/': typeof ExamsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/after-10th': typeof After10thRoute
+  '/after-12th': typeof After12thRoute
   '/ai-guide': typeof AiGuideRoute
-  '/exams': typeof ExamsRoute
+  '/assessment': typeof AssessmentRoute
+  '/contact': typeof ContactRoute
   '/explore': typeof ExploreRoute
   '/login': typeof LoginRoute
+  '/resources': typeof ResourcesRoute
+  '/roadmaps': typeof RoadmapsRoute
+  '/saved': typeof SavedRoute
   '/signup': typeof SignupRoute
   '/profile': typeof AuthenticatedProfileRoute
+  '/careers/$slug': typeof CareersSlugRoute
+  '/exams/$slug': typeof ExamsSlugRoute
+  '/careers': typeof CareersIndexRoute
+  '/exams': typeof ExamsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
+  '/about': typeof AboutRoute
+  '/after-10th': typeof After10thRoute
+  '/after-12th': typeof After12thRoute
   '/ai-guide': typeof AiGuideRoute
-  '/exams': typeof ExamsRoute
+  '/assessment': typeof AssessmentRoute
+  '/careers': typeof CareersRouteWithChildren
+  '/contact': typeof ContactRoute
+  '/exams': typeof ExamsRouteWithChildren
   '/explore': typeof ExploreRoute
   '/login': typeof LoginRoute
+  '/resources': typeof ResourcesRoute
+  '/roadmaps': typeof RoadmapsRoute
+  '/saved': typeof SavedRoute
   '/signup': typeof SignupRoute
   '/_authenticated/profile': typeof AuthenticatedProfileRoute
+  '/careers/$slug': typeof CareersSlugRoute
+  '/exams/$slug': typeof ExamsSlugRoute
+  '/careers/': typeof CareersIndexRoute
+  '/exams/': typeof ExamsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/about'
+    | '/after-10th'
+    | '/after-12th'
     | '/ai-guide'
+    | '/assessment'
+    | '/careers'
+    | '/contact'
     | '/exams'
     | '/explore'
     | '/login'
+    | '/resources'
+    | '/roadmaps'
+    | '/saved'
     | '/signup'
     | '/profile'
+    | '/careers/$slug'
+    | '/exams/$slug'
+    | '/careers/'
+    | '/exams/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/about'
+    | '/after-10th'
+    | '/after-12th'
     | '/ai-guide'
-    | '/exams'
+    | '/assessment'
+    | '/contact'
     | '/explore'
     | '/login'
+    | '/resources'
+    | '/roadmaps'
+    | '/saved'
     | '/signup'
     | '/profile'
+    | '/careers/$slug'
+    | '/exams/$slug'
+    | '/careers'
+    | '/exams'
   id:
     | '__root__'
     | '/'
     | '/_authenticated'
+    | '/about'
+    | '/after-10th'
+    | '/after-12th'
     | '/ai-guide'
+    | '/assessment'
+    | '/careers'
+    | '/contact'
     | '/exams'
     | '/explore'
     | '/login'
+    | '/resources'
+    | '/roadmaps'
+    | '/saved'
     | '/signup'
     | '/_authenticated/profile'
+    | '/careers/$slug'
+    | '/exams/$slug'
+    | '/careers/'
+    | '/exams/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
+  AboutRoute: typeof AboutRoute
+  After10thRoute: typeof After10thRoute
+  After12thRoute: typeof After12thRoute
   AiGuideRoute: typeof AiGuideRoute
-  ExamsRoute: typeof ExamsRoute
+  AssessmentRoute: typeof AssessmentRoute
+  CareersRoute: typeof CareersRouteWithChildren
+  ContactRoute: typeof ContactRoute
+  ExamsRoute: typeof ExamsRouteWithChildren
   ExploreRoute: typeof ExploreRoute
   LoginRoute: typeof LoginRoute
+  ResourcesRoute: typeof ResourcesRoute
+  RoadmapsRoute: typeof RoadmapsRoute
+  SavedRoute: typeof SavedRoute
   SignupRoute: typeof SignupRoute
 }
 
@@ -144,11 +305,53 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/after-10th': {
+      id: '/after-10th'
+      path: '/after-10th'
+      fullPath: '/after-10th'
+      preLoaderRoute: typeof After10thRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/after-12th': {
+      id: '/after-12th'
+      path: '/after-12th'
+      fullPath: '/after-12th'
+      preLoaderRoute: typeof After12thRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/ai-guide': {
       id: '/ai-guide'
       path: '/ai-guide'
       fullPath: '/ai-guide'
       preLoaderRoute: typeof AiGuideRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/assessment': {
+      id: '/assessment'
+      path: '/assessment'
+      fullPath: '/assessment'
+      preLoaderRoute: typeof AssessmentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/careers': {
+      id: '/careers'
+      path: '/careers'
+      fullPath: '/careers'
+      preLoaderRoute: typeof CareersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/exams': {
@@ -172,6 +375,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/resources': {
+      id: '/resources'
+      path: '/resources'
+      fullPath: '/resources'
+      preLoaderRoute: typeof ResourcesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/roadmaps': {
+      id: '/roadmaps'
+      path: '/roadmaps'
+      fullPath: '/roadmaps'
+      preLoaderRoute: typeof RoadmapsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/saved': {
+      id: '/saved'
+      path: '/saved'
+      fullPath: '/saved'
+      preLoaderRoute: typeof SavedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/signup': {
       id: '/signup'
       path: '/signup'
@@ -185,6 +409,34 @@ declare module '@tanstack/react-router' {
       fullPath: '/profile'
       preLoaderRoute: typeof AuthenticatedProfileRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/careers/': {
+      id: '/careers/'
+      path: '/'
+      fullPath: '/careers/'
+      preLoaderRoute: typeof CareersIndexRouteImport
+      parentRoute: typeof CareersRoute
+    }
+    '/careers/$slug': {
+      id: '/careers/$slug'
+      path: '/$slug'
+      fullPath: '/careers/$slug'
+      preLoaderRoute: typeof CareersSlugRouteImport
+      parentRoute: typeof CareersRoute
+    }
+    '/exams/': {
+      id: '/exams/'
+      path: '/'
+      fullPath: '/exams/'
+      preLoaderRoute: typeof ExamsIndexRouteImport
+      parentRoute: typeof ExamsRoute
+    }
+    '/exams/$slug': {
+      id: '/exams/$slug'
+      path: '/$slug'
+      fullPath: '/exams/$slug'
+      preLoaderRoute: typeof ExamsSlugRouteImport
+      parentRoute: typeof ExamsRoute
     }
   }
 }
@@ -200,13 +452,47 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
 const AuthenticatedRouteRouteWithChildren =
   AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
 
+interface CareersRouteChildren {
+  CareersSlugRoute: typeof CareersSlugRoute
+  CareersIndexRoute: typeof CareersIndexRoute
+}
+
+const CareersRouteChildren: CareersRouteChildren = {
+  CareersSlugRoute: CareersSlugRoute,
+  CareersIndexRoute: CareersIndexRoute,
+}
+
+const CareersRouteWithChildren =
+  CareersRoute._addFileChildren(CareersRouteChildren)
+
+interface ExamsRouteChildren {
+  ExamsSlugRoute: typeof ExamsSlugRoute
+  ExamsIndexRoute: typeof ExamsIndexRoute
+}
+
+const ExamsRouteChildren: ExamsRouteChildren = {
+  ExamsSlugRoute: ExamsSlugRoute,
+  ExamsIndexRoute: ExamsIndexRoute,
+}
+
+const ExamsRouteWithChildren = ExamsRoute._addFileChildren(ExamsRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
+  AboutRoute: AboutRoute,
+  After10thRoute: After10thRoute,
+  After12thRoute: After12thRoute,
   AiGuideRoute: AiGuideRoute,
-  ExamsRoute: ExamsRoute,
+  AssessmentRoute: AssessmentRoute,
+  CareersRoute: CareersRouteWithChildren,
+  ContactRoute: ContactRoute,
+  ExamsRoute: ExamsRouteWithChildren,
   ExploreRoute: ExploreRoute,
   LoginRoute: LoginRoute,
+  ResourcesRoute: ResourcesRoute,
+  RoadmapsRoute: RoadmapsRoute,
+  SavedRoute: SavedRoute,
   SignupRoute: SignupRoute,
 }
 export const routeTree = rootRouteImport

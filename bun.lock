@@ -1490,4 +1490,3 @@
     "@typescript-eslint/typescript-estree/minimatch/brace-expansion/balanced-match": ["balanced-match@4.0.4", "https://europe-west1-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/balanced-match/-/balanced-match-4.0.4.tgz", {}, "sha512-BLrgEcRTwX2o6gGxGOCNyMvGSp35YofuYzw9h1IMTRmKqttAZZVU67bdb9Pr2vUHA8+j3i2tJfjO6C6+4myGTA=="],
   }
 }
-

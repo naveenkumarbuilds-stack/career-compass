@@ -2,7 +2,7 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState, type FormEvent } from "react";
 import { Eye, EyeOff } from "lucide-react";
 import { toast } from "sonner";
-import { isSupabaseConfigured, supabase } from "@/integrations/supabase/client";
+import { supabase } from "@/integrations/supabase/client";
 import { pageMeta, useI18n } from "@/i18n";
 import { useAuth } from "@/lib/auth";
 import { authErrorKey, fieldErrors, loginSchema, safeRedirect } from "@/lib/validation";
@@ -11,7 +11,7 @@ import { FormField, describedBy, inputClass } from "@/components/site/FormField"
 
 export const Route = createFileRoute("/login")({
   validateSearch: (s: Record<string, unknown>): { redirect?: string } =>
-    typeof s["redirect"] === "string" ? { redirect: s["redirect"] } : {},
+    typeof s.redirect === "string" ? { redirect: s.redirect } : {},
   head: () => pageMeta("meta.loginTitle", "meta.loginDescription"),
   component: Login,
 });
@@ -35,7 +35,6 @@ function Login() {
 
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
-    if (!isSupabaseConfigured) { setFormError("errors.notConfigured"); return; }
     setFormError(null);
     const parsed = loginSchema.safeParse({ email, password });
     if (!parsed.success) return setErrors(fieldErrors(parsed.error));
@@ -60,9 +59,8 @@ function Login() {
           {t("auth.redirectNotice")}
         </p>
       )}
-      {!isSupabaseConfigured && <p role="status" className="mb-4 text-destructive">{t("errors.notConfigured")}</p>}
       <form onSubmit={onSubmit} noValidate className="space-y-5">
-        <FormField id="email" label={t("auth.emailLabel")} error={errors["email"]}>
+        <FormField id="email" label={t("auth.emailLabel")} error={errors.email}>
           <input
             id="email"
             type="email"
@@ -70,19 +68,19 @@ function Login() {
             className={inputClass}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            aria-invalid={!!errors["email"]}
-            aria-describedby={describedBy("email", errors["email"])}
+            aria-invalid={!!errors.email}
+            aria-describedby={describedBy("email", errors.email)}
           />
         </FormField>
-        <FormField id="password" label={t("auth.passwordLabel")} error={errors["password"]}>
-          <PasswordInput id="password" value={password} onChange={setPassword} show={show} setShow={setShow} error={errors["password"]} autoComplete="current-password" />
+        <FormField id="password" label={t("auth.passwordLabel")} error={errors.password}>
+          <PasswordInput id="password" value={password} onChange={setPassword} show={show} setShow={setShow} error={errors.password} autoComplete="current-password" />
         </FormField>
         {formError && (
           <p role="alert" className="rounded-xl bg-destructive/10 px-4 py-3 font-semibold text-destructive">
             {t(formError)}
           </p>
         )}
-        <Button type="submit" size="lg" className="w-full" disabled={busy || !isSupabaseConfigured}>
+        <Button type="submit" size="lg" className="w-full" disabled={busy}>
           {busy ? t("auth.loggingIn") : t("auth.loginButton")}
         </Button>
       </form>
@@ -123,8 +121,8 @@ export function PasswordInput({
   onChange: (v: string) => void;
   show: boolean;
   setShow: (v: boolean) => void;
-  error?: string | undefined;
-  hint?: string | undefined;
+  error?: string;
+  hint?: string;
   autoComplete: string;
 }) {
   const { t } = useI18n();
@@ -152,4 +150,3 @@ export function PasswordInput({
     </div>
   );
 }
-

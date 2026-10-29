@@ -1,7 +1,6 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
 import en, { type Dictionary } from "./en";
 import kn from "./kn";
-import { useRouterState } from "@tanstack/react-router";
 
 export type Lang = "en" | "kn";
 export const LANGS: Lang[] = ["en", "kn"];
@@ -32,10 +31,8 @@ export function I18nProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<Lang>("en");
 
   useEffect(() => {
-    try {
-      const stored = window.localStorage.getItem(LANG_STORAGE_KEY);
-      if (isLang(stored)) setLangState(stored);
-    } catch { /* Language still works if browser storage is disabled. */ }
+    const stored = window.localStorage.getItem(LANG_STORAGE_KEY);
+    if (isLang(stored)) setLangState(stored);
   }, []);
 
   useEffect(() => {
@@ -44,7 +41,7 @@ export function I18nProvider({ children }: { children: ReactNode }) {
 
   const setLang = useCallback((l: Lang) => {
     setLangState(l);
-    try { window.localStorage.setItem(LANG_STORAGE_KEY, l); } catch { /* Keep in memory. */ }
+    window.localStorage.setItem(LANG_STORAGE_KEY, l);
   }, []);
 
   const value = useMemo<Ctx>(
@@ -60,34 +57,10 @@ export function useI18n() {
   return ctx;
 }
 
-/** Keep browser metadata in the selected language after hydration/navigation. */
-export function LocalizedMetadata() {
-  const { t } = useI18n();
-  const pathname = useRouterState({ select: (s) => s.location.pathname });
-  useEffect(() => {
-    const pages: Record<string, string> = { "/": "home", "/login": "login", "/signup": "signup", "/profile": "profile", "/explore": "explore", "/exams": "exams", "/ai-guide": "ai" };
-    const page = pages[pathname] ?? "notFound";
-    const title = t(`meta.${page}Title`);
-    const description = t(page === "notFound" ? "notFound.body" : `meta.${page}Description`);
-    document.title = title;
-    for (const [selector, content] of [["meta[name='description']", description], ["meta[property='og:title']", title], ["meta[property='og:description']", description]]) {
-      if (selector && content) document.querySelector(selector)?.setAttribute("content", content);
-    }
-  }, [pathname, t]);
-  return null;
-}
-
-/** SSR starts in English; browser navigation uses the saved language. */
+/** Build head() meta from English translations (default SSR language). */
 export function pageMeta(titleKey: string, descKey: string) {
-  let lang: Lang = "en";
-  try {
-    if (typeof window !== "undefined") {
-      const saved = window.localStorage.getItem(LANG_STORAGE_KEY);
-      if (isLang(saved)) lang = saved;
-    }
-  } catch { /* Fall back to the SSR language if storage is unavailable. */ }
-  const title = translate(dictionaries[lang], titleKey);
-  const description = translate(dictionaries[lang], descKey);
+  const title = translate(en, titleKey);
+  const description = translate(en, descKey);
   return {
     meta: [
       { title },
@@ -99,4 +72,3 @@ export function pageMeta(titleKey: string, descKey: string) {
     ],
   };
 }
-

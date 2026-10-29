@@ -20,8 +20,6 @@ const en = {
     notFoundTitle: "Page not found — CareerCompass",
   },
   common: {
-    notifications: "Notifications",
-    numberedStep: "{number}. {title}",
     skipToContent: "Skip to main content",
     comingSoon: "Coming soon",
     futureFeature: "Future feature",
@@ -36,7 +34,16 @@ const en = {
     mobileLabel: "Bottom navigation",
     home: "Home",
     explore: "Explore",
+    after10: "After 10th",
+    after12: "After 12th",
+    careers: "Careers",
+    assessment: "Assessment",
+    roadmaps: "Roadmaps",
     exams: "Exams",
+    saved: "Saved",
+    resources: "Resources",
+    about: "About",
+    contact: "Contact",
     aiGuide: "AI Guide",
     profile: "Profile",
     login: "Log in",
@@ -165,7 +172,6 @@ const en = {
     notConfigured: "Accounts are not available yet because the backend is not configured.",
   },
   notFound: {
-    code: "404",
     title: "Page not found",
     body: "The page you're looking for doesn't exist.",
   },
@@ -183,4 +189,3 @@ export default en;
 
 type Widen<T> = { [K in keyof T]: T[K] extends string ? string : Widen<T[K]> };
 export type Dictionary = Widen<typeof en>;
-

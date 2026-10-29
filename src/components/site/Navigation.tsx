@@ -1,5 +1,19 @@
 import { Link } from "@tanstack/react-router";
-import { BookOpenCheck, Compass, Home, Sparkles, UserRound } from "lucide-react";
+import {
+  BookOpenCheck,
+  Compass,
+  Home,
+  Sparkles,
+  UserRound,
+  GraduationCap,
+  School,
+  FileText,
+  Map,
+  Bookmark,
+  Info,
+  Mail,
+  Brain,
+} from "lucide-react";
 import { useI18n } from "@/i18n";
 import { useAuth } from "@/lib/auth";
 import { BrandLink } from "./Brand";
@@ -8,9 +22,16 @@ import { buttonVariants } from "@/components/ui/button";
 
 const items = [
   { to: "/", key: "nav.home", icon: Home },
-  { to: "/explore", key: "nav.explore", icon: Compass },
+  { to: "/after-10th", key: "nav.after10", icon: School },
+  { to: "/after-12th", key: "nav.after12", icon: GraduationCap },
+  { to: "/careers", key: "nav.careers", icon: Compass },
+  { to: "/assessment", key: "nav.assessment", icon: Brain },
+  { to: "/roadmaps", key: "nav.roadmaps", icon: Map },
   { to: "/exams", key: "nav.exams", icon: BookOpenCheck },
-  { to: "/ai-guide", key: "nav.aiGuide", icon: Sparkles },
+  { to: "/saved", key: "nav.saved", icon: Bookmark },
+  { to: "/resources", key: "nav.resources", icon: FileText },
+  { to: "/about", key: "nav.about", icon: Info },
+  { to: "/contact", key: "nav.contact", icon: Mail },
   { to: "/profile", key: "nav.profile", icon: UserRound },
 ] as const;
 
@@ -19,9 +40,9 @@ export function SiteHeader() {
   const { session } = useAuth();
   return (
     <header className="sticky top-0 z-30 border-b border-border bg-card/90 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-2 px-3 py-3 sm:px-4">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
         <BrandLink />
-        <nav aria-label={t("nav.mainLabel")} className="hidden lg:block">
+        <nav aria-label={t("nav.mainLabel")} className="hidden md:block">
           <ul className="flex items-center gap-1">
             {items.map((i) => (
               <li key={i.to}>
@@ -39,11 +60,9 @@ export function SiteHeader() {
         <div className="flex items-center gap-2">
           <LanguageSwitcher />
           {!session && (
-            <span className="hidden sm:block">
-            <Link to="/login" className={buttonVariants({ size: "sm", variant: "outline" })}>
+            <Link to="/login" className={buttonVariants({ size: "sm", variant: "outline", className: "hidden sm:inline-flex" })}>
               {t("nav.login")}
             </Link>
-            </span>
           )}
         </div>
       </div>
@@ -53,18 +72,25 @@ export function SiteHeader() {
 
 export function BottomNav() {
   const { t } = useI18n();
+  const bottomItems = [
+    { to: "/", key: "nav.home", icon: Home },
+    { to: "/after-10th", key: "nav.after10", icon: School },
+    { to: "/careers", key: "nav.careers", icon: Compass },
+    { to: "/assessment", key: "nav.assessment", icon: Brain },
+    { to: "/exams", key: "nav.exams", icon: BookOpenCheck },
+  ] as const;
   return (
-    <nav aria-label={t("nav.mobileLabel")} className="fixed inset-x-0 bottom-0 z-30 border-t border-border bg-card pb-[env(safe-area-inset-bottom)] lg:hidden">
+    <nav aria-label={t("nav.mobileLabel")} className="fixed inset-x-0 bottom-0 z-30 border-t border-border bg-card md:hidden">
       <ul className="grid grid-cols-5">
-        {items.map((i) => (
+        {bottomItems.map((i) => (
           <li key={i.to}>
             <Link
               to={i.to}
               activeOptions={{ exact: i.to === "/" }}
               className="flex flex-col items-center gap-0.5 px-1 py-2 text-xs font-bold text-muted-foreground data-[status=active]:text-primary"
             >
-              <i.icon className="size-6" aria-hidden="true" />
-              <span className="max-w-full break-words text-center leading-snug">{t(i.key)}</span>
+              <i.icon className="size-5" aria-hidden="true" />
+              <span className="truncate text-[10px]">{t(i.key)}</span>
             </Link>
           </li>
         ))}
@@ -76,7 +102,7 @@ export function BottomNav() {
 export function SiteFooter() {
   const { t } = useI18n();
   return (
-    <footer className="mt-16 border-t border-border bg-card pb-24 lg:pb-0">
+    <footer className="mt-16 border-t border-border bg-card pb-24 md:pb-0">
       <div className="mx-auto max-w-6xl px-4 py-8 text-sm text-muted-foreground">
         <p className="font-bold text-foreground">{t("footer.tagline")}</p>
         <p>{t("footer.disclaimer")}</p>
@@ -84,4 +110,3 @@ export function SiteFooter() {
     </footer>
   );
 }
-

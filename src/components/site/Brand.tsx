@@ -19,9 +19,9 @@ export function CompassMark({ className, animated = false }: { className?: strin
 export function BrandLink() {
   const { t } = useI18n();
   return (
-    <Link to="/" aria-label={t("common.logoLabel")} className="flex shrink-0 items-center gap-1 rounded-xl sm:gap-2">
-      <CompassMark className="size-8 sm:size-10" />
-      <span className="font-display text-base font-bold text-navy sm:text-2xl">{t("meta.appName")}</span>
+    <Link to="/" aria-label={t("common.logoLabel")} className="flex items-center gap-2 rounded-xl">
+      <CompassMark className="size-10" />
+      <span className="font-display text-2xl font-bold text-navy">{t("meta.appName")}</span>
     </Link>
   );
 }
@@ -44,4 +44,3 @@ export function ComingSoonBadge({ className }: { className?: string }) {
     </span>
   );
 }
-

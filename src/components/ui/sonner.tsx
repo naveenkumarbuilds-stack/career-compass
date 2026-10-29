@@ -1,13 +1,10 @@
 import { Toaster as Sonner } from "sonner";
-import { useI18n } from "@/i18n";
 
 type ToasterProps = React.ComponentProps<typeof Sonner>;
 
 const Toaster = ({ ...props }: ToasterProps) => {
-  const { t } = useI18n();
   return (
     <Sonner
-      containerAriaLabel={t("common.notifications")}
       className="toaster group"
       toastOptions={{
         classNames: {
@@ -24,4 +21,3 @@ const Toaster = ({ ...props }: ToasterProps) => {
 };
 
 export { Toaster };
-

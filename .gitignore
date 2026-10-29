@@ -15,9 +15,6 @@ dist-ssr
 .tanstack/**
 .nitro
 *.local
-.env
-.env.*
-!.env.example
 
 # Wrangler / Cloudflare
 .wrangler/
@@ -34,3 +31,11 @@ dist-ssr
 *.sln
 *.sw?
 
+# Local credentials and environment configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.p12
+*.pfx
+*.key

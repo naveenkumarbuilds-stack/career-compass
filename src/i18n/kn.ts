@@ -24,8 +24,6 @@ const kn: Dictionary = {
     notFoundTitle: "ಪುಟ ಸಿಗಲಿಲ್ಲ — CareerCompass",
   },
   common: {
-    notifications: "ಸೂಚನೆಗಳು",
-    numberedStep: "{number}. {title}",
     skipToContent: "ಮುಖ್ಯ ವಿಷಯಕ್ಕೆ ಹೋಗಿ",
     comingSoon: "ಶೀಘ್ರದಲ್ಲೇ ಬರಲಿದೆ",
     futureFeature: "ಮುಂದಿನ ವೈಶಿಷ್ಟ್ಯ",
@@ -169,7 +167,6 @@ const kn: Dictionary = {
     notConfigured: "ಬ್ಯಾಕೆಂಡ್ ಇನ್ನೂ ಸಿದ್ಧವಾಗಿಲ್ಲದ ಕಾರಣ ಖಾತೆಗಳು ಲಭ್ಯವಿಲ್ಲ.",
   },
   notFound: {
-    code: "404",
     title: "ಪುಟ ಸಿಗಲಿಲ್ಲ",
     body: "ನೀವು ಹುಡುಕುತ್ತಿರುವ ಪುಟ ಅಸ್ತಿತ್ವದಲ್ಲಿಲ್ಲ.",
   },
@@ -184,4 +181,3 @@ const kn: Dictionary = {
 };
 
 export default kn;
-

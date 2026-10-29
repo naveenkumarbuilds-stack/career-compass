@@ -12,7 +12,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import { I18nProvider, LocalizedMetadata, pageMeta, useI18n } from "@/i18n";
+import { I18nProvider, pageMeta, useI18n } from "@/i18n";
 import { AuthProvider } from "@/lib/auth";
 import { SiteHeader, BottomNav, SiteFooter } from "@/components/site/Navigation";
 import { ReviewBadge } from "@/components/site/Brand";
@@ -23,7 +23,7 @@ function NotFoundComponent() {
   const { t } = useI18n();
   return (
     <div className="mx-auto max-w-md px-4 py-24 text-center">
-      <h1 className="text-7xl font-bold text-navy">{t("notFound.code")}</h1>
+      <h1 className="text-7xl font-bold text-navy">404</h1>
       <h2 className="mt-4 text-2xl font-bold">{t("notFound.title")}</h2>
       <p className="mt-2 text-muted-foreground">{t("notFound.body")}</p>
       <Link to="/" className={buttonVariants({ className: "mt-6" })}>
@@ -95,7 +95,7 @@ function RootShell({ children }: { children: ReactNode }) {
         <HeadContent />
       </head>
       <body>
-        <I18nProvider><LocalizedMetadata />{children}</I18nProvider>
+        {children}
         <Scripts />
       </body>
     </html>
@@ -118,18 +118,19 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
+      <I18nProvider>
         <AuthProvider>
           <SkipLink />
           <ReviewBadge />
           <SiteHeader />
-          <main id="main" className="min-h-[70vh] pb-20 lg:pb-0">
+          <main id="main" className="min-h-[70vh] pb-20 md:pb-0">
             <Outlet />
           </main>
           <SiteFooter />
           <BottomNav />
           <Toaster position="top-center" />
         </AuthProvider>
+      </I18nProvider>
     </QueryClientProvider>
   );
 }
-

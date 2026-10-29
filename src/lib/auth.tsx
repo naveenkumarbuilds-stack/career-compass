@@ -1,6 +1,6 @@
-import { createContext, useCallback, useContext, useEffect, useRef, useState, type ReactNode } from "react";
+import { createContext, useCallback, useContext, useEffect, useState, type ReactNode } from "react";
 import type { Session } from "@supabase/supabase-js";
-import { isSupabaseConfigured, supabase } from "@/integrations/supabase/client";
+import { supabase } from "@/integrations/supabase/client";
 import { isLang, useI18n } from "@/i18n";
 import type { Database } from "@/integrations/supabase/types";
 
@@ -23,38 +23,25 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [ready, setReady] = useState(false);
   const [profile, setProfileState] = useState<Profile | null>(null);
   const [profileError, setProfileError] = useState(false);
-  const requestId = useRef(0);
 
   const loadProfile = useCallback(
     async (uid: string | undefined) => {
-      const request = ++requestId.current;
-      setProfileError(false);
-      setProfileState(null);
       if (!uid) {
+        setProfileState(null);
         return;
       }
-      try {
-        const { data, error } = await supabase.from("profiles").select("*").eq("id", uid).maybeSingle();
-        if (request !== requestId.current) return;
-        setProfileError(!!error || !data);
-        setProfileState(data ?? null);
-        if (data && isLang(data.preferred_language)) setLang(data.preferred_language);
-      } catch {
-        if (request === requestId.current) setProfileError(true);
-      }
+      const { data, error } = await supabase.from("profiles").select("*").eq("id", uid).maybeSingle();
+      setProfileError(!!error);
+      setProfileState(data ?? null);
+      if (data && isLang(data.preferred_language)) setLang(data.preferred_language);
     },
     [setLang],
   );
 
   useEffect(() => {
-    if (!isSupabaseConfigured) { setReady(true); return; }
     const { data: sub } = supabase.auth.onAuthStateChange((event, s) => {
       setSession(s);
-      if (event === "SIGNED_OUT") {
-        ++requestId.current;
-        setProfileState(null);
-        setProfileError(false);
-      } else if (event === "SIGNED_IN" || event === "USER_UPDATED") {
+      if (event === "SIGNED_IN" || event === "SIGNED_OUT" || event === "USER_UPDATED") {
         setTimeout(() => void loadProfile(s?.user.id), 0);
       }
     });
@@ -62,8 +49,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       setSession(data.session);
       setReady(true);
       void loadProfile(data.session?.user.id);
-    }).catch(() => { setSession(null); setReady(true); });
-    return () => { ++requestId.current; sub.subscription.unsubscribe(); };
+    });
+    return () => sub.subscription.unsubscribe();
   }, [loadProfile]);
 
   return (
@@ -87,4 +74,3 @@ export function useAuth() {
   if (!c) throw new Error("useAuth must be used inside AuthProvider");
   return c;
 }
-
