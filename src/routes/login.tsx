@@ -11,7 +11,7 @@ import { FormField, describedBy, inputClass } from "@/components/site/FormField"
 
 export const Route = createFileRoute("/login")({
   validateSearch: (s: Record<string, unknown>): { redirect?: string } =>
-    typeof s.redirect === "string" ? { redirect: s.redirect } : {},
+    typeof s["redirect"] === "string" ? { redirect: s["redirect"] } : {},
   head: () => pageMeta("meta.loginTitle", "meta.loginDescription"),
   component: Login,
 });
@@ -55,12 +55,19 @@ function Login() {
   return (
     <AuthCard title={t("auth.loginTitle")} subtitle={t("auth.loginSubtitle")}>
       {search.redirect && (
-        <p role="status" className="mb-4 rounded-xl bg-accent px-4 py-3 font-semibold text-accent-foreground">
+        <p
+          role="status"
+          className="mb-4 rounded-xl bg-accent px-4 py-3 font-semibold text-accent-foreground"
+        >
           {t("auth.redirectNotice")}
         </p>
       )}
+      <p className="mb-5 rounded-xl bg-muted p-4 text-sm text-muted-foreground">
+        Use the password you created for CareerCompass. If this is your first visit, create an
+        account and confirm your email before signing in.
+      </p>
       <form onSubmit={onSubmit} noValidate className="space-y-5">
-        <FormField id="email" label={t("auth.emailLabel")} error={errors.email}>
+        <FormField id="email" label={t("auth.emailLabel")} error={errors["email"]}>
           <input
             id="email"
             type="email"
@@ -68,15 +75,26 @@ function Login() {
             className={inputClass}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            aria-invalid={!!errors.email}
-            aria-describedby={describedBy("email", errors.email)}
+            aria-invalid={!!errors["email"]}
+            aria-describedby={describedBy("email", errors["email"])}
           />
         </FormField>
-        <FormField id="password" label={t("auth.passwordLabel")} error={errors.password}>
-          <PasswordInput id="password" value={password} onChange={setPassword} show={show} setShow={setShow} error={errors.password} autoComplete="current-password" />
+        <FormField id="password" label={t("auth.passwordLabel")} error={errors["password"]}>
+          <PasswordInput
+            id="password"
+            value={password}
+            onChange={setPassword}
+            show={show}
+            setShow={setShow}
+            error={errors["password"]}
+            autoComplete="current-password"
+          />
         </FormField>
         {formError && (
-          <p role="alert" className="rounded-xl bg-destructive/10 px-4 py-3 font-semibold text-destructive">
+          <p
+            role="alert"
+            className="rounded-xl bg-destructive/10 px-4 py-3 font-semibold text-destructive"
+          >
             {t(formError)}
           </p>
         )}
@@ -84,9 +102,16 @@ function Login() {
           {busy ? t("auth.loggingIn") : t("auth.loginButton")}
         </Button>
       </form>
+      <Link to="/forgot-password" className="mt-4 block text-primary underline">
+        Forgot password?
+      </Link>
       <p className="mt-6 text-center text-muted-foreground">
         {t("auth.noAccount")}{" "}
-        <Link to="/signup" search={search.redirect ? { redirect: search.redirect } : {}} className="font-bold text-primary underline-offset-4 hover:underline">
+        <Link
+          to="/signup"
+          search={search.redirect ? { redirect: search.redirect } : {}}
+          className="font-bold text-primary underline-offset-4 hover:underline"
+        >
           {t("auth.goSignup")}
         </Link>
       </p>
@@ -94,7 +119,15 @@ function Login() {
   );
 }
 
-export function AuthCard({ title, subtitle, children }: { title: string; subtitle: string; children: React.ReactNode }) {
+export function AuthCard({
+  title,
+  subtitle,
+  children,
+}: {
+  title: string;
+  subtitle: string;
+  children: React.ReactNode;
+}) {
   return (
     <section className="mx-auto max-w-lg px-4 py-12 animate-rise">
       <div className="rounded-3xl bg-card p-6 shadow-card md:p-8">
@@ -121,8 +154,8 @@ export function PasswordInput({
   onChange: (v: string) => void;
   show: boolean;
   setShow: (v: boolean) => void;
-  error?: string;
-  hint?: string;
+  error?: string | undefined;
+  hint?: string | undefined;
   autoComplete: string;
 }) {
   const { t } = useI18n();
@@ -145,7 +178,11 @@ export function PasswordInput({
         aria-pressed={show}
         className="absolute right-1.5 top-1/2 flex size-9 -translate-y-1/2 items-center justify-center rounded-lg text-muted-foreground hover:bg-muted"
       >
-        {show ? <EyeOff className="size-5" aria-hidden="true" /> : <Eye className="size-5" aria-hidden="true" />}
+        {show ? (
+          <EyeOff className="size-5" aria-hidden="true" />
+        ) : (
+          <Eye className="size-5" aria-hidden="true" />
+        )}
       </button>
     </div>
   );

@@ -6,25 +6,106 @@
     "rules_for_agent": "Do not add dates, fees, salaries, cut-offs or statistics anywhere. Use only what is in this file."
   },
   "categories": [
-    { "key": "engineering-technology", "title": "Engineering & Technology", "summary": "Design, build and improve software, machines and structures that people use every day." },
-    { "key": "healthcare", "title": "Healthcare", "summary": "Careers in treating people, preparing medicines and keeping communities healthy." },
-    { "key": "commerce-finance", "title": "Commerce & Finance", "summary": "Work with money, accounts, banking and business numbers." },
-    { "key": "design-creative-arts", "title": "Design & Creative Arts", "summary": "Turn ideas into products, visuals, fashion and experiences people enjoy." },
-    { "key": "law-public-policy", "title": "Law & Public Policy", "summary": "Work with laws, courts and government to shape how society runs." },
-    { "key": "science-research", "title": "Science & Research", "summary": "Explore how the world works through experiments, data and discovery." },
-    { "key": "management", "title": "Management", "summary": "Lead teams, run organisations and build businesses." },
-    { "key": "arts-humanities", "title": "Arts & Humanities", "summary": "Careers in teaching, writing, media and understanding people and society." }
+    {
+      "key": "engineering-technology",
+      "title": "Engineering & Technology",
+      "summary": "Design, build and improve software, machines and structures that people use every day."
+    },
+    {
+      "key": "healthcare",
+      "title": "Healthcare",
+      "summary": "Careers in treating people, preparing medicines and keeping communities healthy."
+    },
+    {
+      "key": "commerce-finance",
+      "title": "Commerce & Finance",
+      "summary": "Work with money, accounts, banking and business numbers."
+    },
+    {
+      "key": "design-creative-arts",
+      "title": "Design & Creative Arts",
+      "summary": "Turn ideas into products, visuals, fashion and experiences people enjoy."
+    },
+    {
+      "key": "law-public-policy",
+      "title": "Law & Public Policy",
+      "summary": "Work with laws, courts and government to shape how society runs."
+    },
+    {
+      "key": "science-research",
+      "title": "Science & Research",
+      "summary": "Explore how the world works through experiments, data and discovery."
+    },
+    {
+      "key": "management",
+      "title": "Management",
+      "summary": "Lead teams, run organisations and build businesses."
+    },
+    {
+      "key": "arts-humanities",
+      "title": "Arts & Humanities",
+      "summary": "Careers in teaching, writing, media and understanding people and society."
+    }
   ],
   "stage_guides": {
     "after_10th": {
       "title": "After 10th: choosing your path",
       "intro": "Class 10 is your first big choice, but it does not lock your future. Pick based on what you enjoy and what you are good at, and check the entry rules of the courses you may want later.",
       "options": [
-        { "title": "Science (PUC / Class 11-12)", "who_its_for": "Students who like Maths, Physics, Chemistry or Biology.", "leads_to": ["Engineering and technology", "Medicine and healthcare", "Pure science and research", "Architecture and many design routes"], "note": "Maths is needed for most engineering courses and Biology for medicine, so choose your subject combination with this in mind." },
-        { "title": "Commerce", "who_its_for": "Students who like business, numbers and economics.", "leads_to": ["Chartered Accountancy", "B.Com and BBA", "Banking and finance", "Management and entrepreneurship"], "note": "Maths is optional in many commerce streams but helps in finance and data roles." },
-        { "title": "Arts / Humanities", "who_its_for": "Students who like languages, history, society and ideas.", "leads_to": ["Law", "Civil services", "Journalism and media", "Teaching", "Psychology and social sciences", "Design (many programmes accept any stream)"], "note": "A wide set of careers is open here, so do not treat Arts as a lesser choice." },
-        { "title": "Polytechnic Diploma", "who_its_for": "Students who want hands-on technical skills early.", "leads_to": ["Technician and junior engineer jobs", "Lateral entry into the second year of B.E./B.Tech after the diploma (rules vary by state)"], "note": "Check admission rules on your state technical education board website." },
-        { "title": "ITI and skill courses", "who_its_for": "Students who prefer practical trades and earning sooner.", "leads_to": ["Electrician, fitter, welder and other trades", "Apprenticeships", "Further study through bridge or diploma routes where available"], "note": "Course lists and rules vary by institute and state." }
+        {
+          "title": "Science (PUC / Class 11-12)",
+          "who_its_for": "Students who like Maths, Physics, Chemistry or Biology.",
+          "leads_to": [
+            "Engineering and technology",
+            "Medicine and healthcare",
+            "Pure science and research",
+            "Architecture and many design routes"
+          ],
+          "note": "Maths is needed for most engineering courses and Biology for medicine, so choose your subject combination with this in mind."
+        },
+        {
+          "title": "Commerce",
+          "who_its_for": "Students who like business, numbers and economics.",
+          "leads_to": [
+            "Chartered Accountancy",
+            "B.Com and BBA",
+            "Banking and finance",
+            "Management and entrepreneurship"
+          ],
+          "note": "Maths is optional in many commerce streams but helps in finance and data roles."
+        },
+        {
+          "title": "Arts / Humanities",
+          "who_its_for": "Students who like languages, history, society and ideas.",
+          "leads_to": [
+            "Law",
+            "Civil services",
+            "Journalism and media",
+            "Teaching",
+            "Psychology and social sciences",
+            "Design (many programmes accept any stream)"
+          ],
+          "note": "A wide set of careers is open here, so do not treat Arts as a lesser choice."
+        },
+        {
+          "title": "Polytechnic Diploma",
+          "who_its_for": "Students who want hands-on technical skills early.",
+          "leads_to": [
+            "Technician and junior engineer jobs",
+            "Lateral entry into the second year of B.E./B.Tech after the diploma (rules vary by state)"
+          ],
+          "note": "Check admission rules on your state technical education board website."
+        },
+        {
+          "title": "ITI and skill courses",
+          "who_its_for": "Students who prefer practical trades and earning sooner.",
+          "leads_to": [
+            "Electrician, fitter, welder and other trades",
+            "Apprenticeships",
+            "Further study through bridge or diploma routes where available"
+          ],
+          "note": "Course lists and rules vary by institute and state."
+        }
       ],
       "tips": [
         "Choose based on interest first, then marks, then college entry rules.",
@@ -36,11 +117,56 @@
       "title": "After 12th: your options by stream",
       "intro": "After Class 12 you choose a degree and often an entrance exam. Start with your stream, then look at the careers and exams linked to it.",
       "options": [
-        { "title": "Science with Maths (PCM)", "who_its_for": "Students aiming at engineering, technology, architecture or pure science.", "leads_to": ["B.E./B.Tech", "B.Sc in Maths, Physics, Computer Science or Statistics", "B.Arch", "Defence academies such as NDA"], "key_exams": ["jee-main", "jee-advanced", "kcet", "comedk", "bitsat", "nda", "iiser-iat"] },
-        { "title": "Science with Biology (PCB)", "who_its_for": "Students aiming at medicine and life sciences.", "leads_to": ["MBBS and other medical degrees", "B.Pharm and D.Pharm", "B.Sc Nursing and allied health courses", "B.Sc in Biology-related subjects"], "key_exams": ["neet-ug", "kcet", "cuet-ug", "iiser-iat"] },
-        { "title": "Commerce", "who_its_for": "Students aiming at finance, accounting and business.", "leads_to": ["Chartered Accountancy", "B.Com and BBA", "Integrated management programmes", "Banking careers after graduation"], "key_exams": ["ca-foundation", "cuet-ug", "ipmat"] },
-        { "title": "Arts / Humanities", "who_its_for": "Students aiming at law, civil services, media, teaching and social sciences.", "leads_to": ["5-year integrated law degrees", "BA programmes", "Journalism and mass communication", "Teaching routes such as B.Ed or integrated teacher programmes"], "key_exams": ["clat", "ailet", "cuet-ug", "ctet"] },
-        { "title": "Design routes (any stream in most cases)", "who_its_for": "Creative students who like designing products, visuals or fashion.", "leads_to": ["B.Des", "Fashion and textile design", "Animation and multimedia"], "key_exams": ["uceed", "nid-dat", "nift"] }
+        {
+          "title": "Science with Maths (PCM)",
+          "who_its_for": "Students aiming at engineering, technology, architecture or pure science.",
+          "leads_to": [
+            "B.E./B.Tech",
+            "B.Sc in Maths, Physics, Computer Science or Statistics",
+            "B.Arch",
+            "Defence academies such as NDA"
+          ],
+          "key_exams": ["jee-main", "jee-advanced", "kcet", "comedk", "bitsat", "nda", "iiser-iat"]
+        },
+        {
+          "title": "Science with Biology (PCB)",
+          "who_its_for": "Students aiming at medicine and life sciences.",
+          "leads_to": [
+            "MBBS and other medical degrees",
+            "B.Pharm and D.Pharm",
+            "B.Sc Nursing and allied health courses",
+            "B.Sc in Biology-related subjects"
+          ],
+          "key_exams": ["neet-ug", "kcet", "cuet-ug", "iiser-iat"]
+        },
+        {
+          "title": "Commerce",
+          "who_its_for": "Students aiming at finance, accounting and business.",
+          "leads_to": [
+            "Chartered Accountancy",
+            "B.Com and BBA",
+            "Integrated management programmes",
+            "Banking careers after graduation"
+          ],
+          "key_exams": ["ca-foundation", "cuet-ug", "ipmat"]
+        },
+        {
+          "title": "Arts / Humanities",
+          "who_its_for": "Students aiming at law, civil services, media, teaching and social sciences.",
+          "leads_to": [
+            "5-year integrated law degrees",
+            "BA programmes",
+            "Journalism and mass communication",
+            "Teaching routes such as B.Ed or integrated teacher programmes"
+          ],
+          "key_exams": ["clat", "ailet", "cuet-ug", "ctet"]
+        },
+        {
+          "title": "Design routes (any stream in most cases)",
+          "who_its_for": "Creative students who like designing products, visuals or fashion.",
+          "leads_to": ["B.Des", "Fashion and textile design", "Animation and multimedia"],
+          "key_exams": ["uceed", "nid-dat", "nift"]
+        }
       ],
       "tips": [
         "Check eligibility on each college website, since rules differ by institute and state.",
@@ -51,213 +177,683 @@
   },
   "careers": [
     {
-      "slug": "software-developer", "title": "Software Developer", "category": "engineering-technology", "stages": ["after_12th"],
+      "slug": "software-developer",
+      "title": "Software Developer",
+      "category": "engineering-technology",
+      "stages": ["after_12th"],
       "summary": "Designs, builds and tests software, apps and websites.",
       "overview": "Software developers turn ideas into working programs. The field is broad, covering web, mobile, cloud, games and AI, and many companies hire based on skills and projects as well as degrees.",
-      "skills": ["Programming", "Problem solving", "Data structures and algorithms", "Teamwork", "Continuous learning"],
-      "path": ["Class 12 with Maths for B.E./B.Tech, or BCA (eligibility varies by university)", "B.E./B.Tech in Computer Science or IT, or BCA", "Optional: M.Tech or MCA for deeper specialisation", "Build projects, do internships and keep a portfolio"],
+      "skills": [
+        "Programming",
+        "Problem solving",
+        "Data structures and algorithms",
+        "Teamwork",
+        "Continuous learning"
+      ],
+      "path": [
+        "Class 12 with Maths for B.E./B.Tech, or BCA (eligibility varies by university)",
+        "B.E./B.Tech in Computer Science or IT, or BCA",
+        "Optional: M.Tech or MCA for deeper specialisation",
+        "Build projects, do internships and keep a portfolio"
+      ],
       "exam_slugs": ["jee-main", "kcet", "comedk", "bitsat"],
       "interests": ["technology", "problem-solving", "building", "numbers"]
     },
     {
-      "slug": "civil-engineer", "title": "Civil Engineer", "category": "engineering-technology", "stages": ["after_12th"],
+      "slug": "civil-engineer",
+      "title": "Civil Engineer",
+      "category": "engineering-technology",
+      "stages": ["after_12th"],
       "summary": "Plans, designs and oversees buildings, roads, bridges and water systems.",
       "overview": "Civil engineers shape the physical world around us. Work ranges from design offices to construction sites, and the field includes structures, transport, water and environmental work.",
-      "skills": ["Mathematics and physics", "Design software such as CAD", "Project management", "Site safety awareness", "Communication"],
-      "path": ["Class 12 with Physics, Chemistry and Maths", "B.E./B.Tech in Civil Engineering (4 years)", "Work on site or in design; optional M.Tech for specialisation", "Gain experience and take on project responsibility"],
+      "skills": [
+        "Mathematics and physics",
+        "Design software such as CAD",
+        "Project management",
+        "Site safety awareness",
+        "Communication"
+      ],
+      "path": [
+        "Class 12 with Physics, Chemistry and Maths",
+        "B.E./B.Tech in Civil Engineering (4 years)",
+        "Work on site or in design; optional M.Tech for specialisation",
+        "Gain experience and take on project responsibility"
+      ],
       "exam_slugs": ["jee-main", "kcet", "comedk"],
       "interests": ["building", "problem-solving", "numbers", "leadership"]
     },
     {
-      "slug": "doctor-mbbs", "title": "Doctor (MBBS)", "category": "healthcare", "stages": ["after_12th"],
+      "slug": "doctor-mbbs",
+      "title": "Doctor (MBBS)",
+      "category": "healthcare",
+      "stages": ["after_12th"],
       "summary": "Diagnoses and treats illness and helps people stay healthy.",
       "overview": "Becoming a doctor takes many years of study and training. Doctors can later specialise in areas such as surgery, paediatrics or medicine, or move into research and public health.",
-      "skills": ["Dedication and patience", "Empathy", "Communication", "Decision making under pressure", "Strong study habits"],
-      "path": ["Class 12 with Physics, Chemistry and Biology", "Qualify NEET UG and take part in counselling", "MBBS: about 4.5 years of study plus 1 year of internship", "Optional: NEET PG for specialisation (MD/MS)"],
+      "skills": [
+        "Dedication and patience",
+        "Empathy",
+        "Communication",
+        "Decision making under pressure",
+        "Strong study habits"
+      ],
+      "path": [
+        "Class 12 with Physics, Chemistry and Biology",
+        "Qualify NEET UG and take part in counselling",
+        "MBBS: about 4.5 years of study plus 1 year of internship",
+        "Optional: NEET PG for specialisation (MD/MS)"
+      ],
       "exam_slugs": ["neet-ug"],
       "interests": ["biology", "helping-people", "research", "problem-solving"]
     },
     {
-      "slug": "pharmacist", "title": "Pharmacist", "category": "healthcare", "stages": ["after_12th"],
+      "slug": "pharmacist",
+      "title": "Pharmacist",
+      "category": "healthcare",
+      "stages": ["after_12th"],
       "summary": "Prepares and dispenses medicines and advises people on using them safely.",
       "overview": "Pharmacists work in hospitals, pharmacies, drug companies and research labs. The field mixes chemistry and biology with direct service to patients.",
-      "skills": ["Attention to detail", "Chemistry and biology basics", "Communication", "Responsibility and ethics"],
-      "path": ["Class 12 with PCM or PCB (rules vary by course)", "D.Pharm (2 years) or B.Pharm (4 years)", "Register with the State Pharmacy Council to practise", "Optional: M.Pharm for industry or research roles"],
+      "skills": [
+        "Attention to detail",
+        "Chemistry and biology basics",
+        "Communication",
+        "Responsibility and ethics"
+      ],
+      "path": [
+        "Class 12 with PCM or PCB (rules vary by course)",
+        "D.Pharm (2 years) or B.Pharm (4 years)",
+        "Register with the State Pharmacy Council to practise",
+        "Optional: M.Pharm for industry or research roles"
+      ],
       "exam_slugs": ["kcet"],
       "interests": ["biology", "helping-people", "research"]
     },
     {
-      "slug": "chartered-accountant", "title": "Chartered Accountant (CA)", "category": "commerce-finance", "stages": ["after_10th", "after_12th"],
+      "slug": "chartered-accountant",
+      "title": "Chartered Accountant (CA)",
+      "category": "commerce-finance",
+      "stages": ["after_10th", "after_12th"],
       "summary": "Handles accounting, auditing, taxation and financial advice.",
       "overview": "CAs are trained and certified by ICAI. They work in audit firms, companies, consulting and their own practice, and the course is demanding but well respected.",
-      "skills": ["Accounting and taxation", "Analytical thinking", "Discipline and consistency", "Ethics", "Communication"],
-      "path": ["Register with ICAI for the Foundation level (check current ICAI rules on timing)", "Clear Foundation, Intermediate and Final levels", "Complete practical training (articleship) with a practising CA", "Become a member of ICAI"],
+      "skills": [
+        "Accounting and taxation",
+        "Analytical thinking",
+        "Discipline and consistency",
+        "Ethics",
+        "Communication"
+      ],
+      "path": [
+        "Register with ICAI for the Foundation level (check current ICAI rules on timing)",
+        "Clear Foundation, Intermediate and Final levels",
+        "Complete practical training (articleship) with a practising CA",
+        "Become a member of ICAI"
+      ],
       "exam_slugs": ["ca-foundation"],
       "interests": ["numbers", "business", "problem-solving"]
     },
     {
-      "slug": "banking-finance-professional", "title": "Banking & Finance Professional", "category": "commerce-finance", "stages": ["after_12th"],
+      "slug": "banking-finance-professional",
+      "title": "Banking & Finance Professional",
+      "category": "commerce-finance",
+      "stages": ["after_12th"],
       "summary": "Works in banks, investment firms and company finance teams.",
       "overview": "Finance careers include bank officers, financial analysts, investment and risk roles. Some are reached through government bank exams, others through an MBA or professional certifications.",
-      "skills": ["Numerical ability", "Financial analysis", "Communication", "Integrity", "Spreadsheet skills"],
-      "path": ["Class 12 (Commerce helps but is not always required)", "B.Com, BBA or any bachelor's degree", "Bank exams such as IBPS PO, or an MBA in Finance through CAT and similar exams", "Add certifications such as NISM modules or CFA for investment roles"],
+      "skills": [
+        "Numerical ability",
+        "Financial analysis",
+        "Communication",
+        "Integrity",
+        "Spreadsheet skills"
+      ],
+      "path": [
+        "Class 12 (Commerce helps but is not always required)",
+        "B.Com, BBA or any bachelor's degree",
+        "Bank exams such as IBPS PO, or an MBA in Finance through CAT and similar exams",
+        "Add certifications such as NISM modules or CFA for investment roles"
+      ],
       "exam_slugs": ["ibps-po", "cat"],
       "interests": ["numbers", "business", "communication"]
     },
     {
-      "slug": "ux-designer", "title": "UX / UI Designer", "category": "design-creative-arts", "stages": ["after_12th"],
+      "slug": "ux-designer",
+      "title": "UX / UI Designer",
+      "category": "design-creative-arts",
+      "stages": ["after_12th"],
       "summary": "Designs apps and websites so they are easy and enjoyable to use.",
       "overview": "UX designers research what users need, then design screens and flows to meet those needs. A strong portfolio of real projects matters a lot in this field.",
       "skills": ["Visual design", "User research", "Prototyping tools", "Empathy", "Communication"],
-      "path": ["Class 12 in any stream (check each design programme)", "B.Des through UCEED, NID DAT or other design college entrances", "Build a portfolio of real projects", "Intern at a product company or design studio"],
+      "path": [
+        "Class 12 in any stream (check each design programme)",
+        "B.Des through UCEED, NID DAT or other design college entrances",
+        "Build a portfolio of real projects",
+        "Intern at a product company or design studio"
+      ],
       "exam_slugs": ["uceed", "nid-dat"],
       "interests": ["creativity", "technology", "problem-solving", "communication"]
     },
     {
-      "slug": "fashion-designer", "title": "Fashion Designer", "category": "design-creative-arts", "stages": ["after_12th"],
+      "slug": "fashion-designer",
+      "title": "Fashion Designer",
+      "category": "design-creative-arts",
+      "stages": ["after_12th"],
       "summary": "Creates clothing, accessories and textile designs.",
       "overview": "Fashion designers work with brands, export houses or their own labels. Success mixes creativity with an understanding of materials, trends and business.",
-      "skills": ["Sketching and design", "Colour and fabric knowledge", "Trend awareness", "Business sense", "Patience and finishing"],
-      "path": ["Class 12 in any stream", "Entrance exam such as NIFT entrance or NID DAT", "Design degree at a fashion or design institute", "Internships and portfolio, then brand, export house or own label"],
+      "skills": [
+        "Sketching and design",
+        "Colour and fabric knowledge",
+        "Trend awareness",
+        "Business sense",
+        "Patience and finishing"
+      ],
+      "path": [
+        "Class 12 in any stream",
+        "Entrance exam such as NIFT entrance or NID DAT",
+        "Design degree at a fashion or design institute",
+        "Internships and portfolio, then brand, export house or own label"
+      ],
       "exam_slugs": ["nift", "nid-dat"],
       "interests": ["creativity", "business", "communication"]
     },
     {
-      "slug": "lawyer", "title": "Lawyer", "category": "law-public-policy", "stages": ["after_12th"],
+      "slug": "lawyer",
+      "title": "Lawyer",
+      "category": "law-public-policy",
+      "stages": ["after_12th"],
       "summary": "Advises and represents people and organisations in legal matters.",
       "overview": "Lawyers work in courts, law firms, companies and government. You can start right after Class 12 with an integrated degree, or study law after any graduation.",
-      "skills": ["Reading and writing", "Logical reasoning", "Public speaking", "Research", "Ethics"],
-      "path": ["Class 12 in any stream", "5-year integrated law degree (BA LLB, BBA LLB) through CLAT, AILET or a university entrance, or a 3-year LLB after any graduation", "Enrol with a State Bar Council", "Clear the All India Bar Examination to practise in courts"],
+      "skills": [
+        "Reading and writing",
+        "Logical reasoning",
+        "Public speaking",
+        "Research",
+        "Ethics"
+      ],
+      "path": [
+        "Class 12 in any stream",
+        "5-year integrated law degree (BA LLB, BBA LLB) through CLAT, AILET or a university entrance, or a 3-year LLB after any graduation",
+        "Enrol with a State Bar Council",
+        "Clear the All India Bar Examination to practise in courts"
+      ],
       "exam_slugs": ["clat", "ailet"],
       "interests": ["law-policy", "communication", "writing", "problem-solving", "leadership"]
     },
     {
-      "slug": "civil-services-officer", "title": "Civil Services Officer (IAS / IPS and more)", "category": "law-public-policy", "stages": ["after_12th"],
+      "slug": "civil-services-officer",
+      "title": "Civil Services Officer (IAS / IPS and more)",
+      "category": "law-public-policy",
+      "stages": ["after_12th"],
       "summary": "Serves in senior government roles in administration, police, foreign service and other services.",
       "overview": "Civil servants are selected through the UPSC Civil Services Examination. You need a bachelor's degree in any subject, so students usually choose a degree they enjoy and prepare alongside it.",
-      "skills": ["General awareness", "Writing and analysis", "Consistency over years", "Leadership", "Ethics and public service attitude"],
-      "path": ["Complete any bachelor's degree", "UPSC Civil Services Exam: Prelims, Mains and Interview", "Services include IAS, IPS, IFS and others based on rank and choice", "Check age limit and number of attempts on the UPSC notice"],
+      "skills": [
+        "General awareness",
+        "Writing and analysis",
+        "Consistency over years",
+        "Leadership",
+        "Ethics and public service attitude"
+      ],
+      "path": [
+        "Complete any bachelor's degree",
+        "UPSC Civil Services Exam: Prelims, Mains and Interview",
+        "Services include IAS, IPS, IFS and others based on rank and choice",
+        "Check age limit and number of attempts on the UPSC notice"
+      ],
       "exam_slugs": ["upsc-cse"],
       "interests": ["law-policy", "leadership", "communication", "helping-people", "writing"]
     },
     {
-      "slug": "research-scientist", "title": "Research Scientist", "category": "science-research", "stages": ["after_12th"],
+      "slug": "research-scientist",
+      "title": "Research Scientist",
+      "category": "science-research",
+      "stages": ["after_12th"],
       "summary": "Investigates questions in physics, chemistry, biology, maths and related fields.",
       "overview": "Scientists work in universities, research institutes and industry labs. The path is long and study-heavy, but fellowships and research programmes support students along the way.",
-      "skills": ["Curiosity", "Maths and analytical thinking", "Lab or computational skills", "Scientific writing", "Patience"],
-      "path": ["Class 12 Science with the relevant subjects", "BSc, BS-MS (for example IISER) or B.Tech through IAT, CUET or JEE", "MSc or integrated MS", "PhD, often funded through fellowships such as those via UGC NET or institute programmes"],
+      "skills": [
+        "Curiosity",
+        "Maths and analytical thinking",
+        "Lab or computational skills",
+        "Scientific writing",
+        "Patience"
+      ],
+      "path": [
+        "Class 12 Science with the relevant subjects",
+        "BSc, BS-MS (for example IISER) or B.Tech through IAT, CUET or JEE",
+        "MSc or integrated MS",
+        "PhD, often funded through fellowships such as those via UGC NET or institute programmes"
+      ],
       "exam_slugs": ["iiser-iat", "cuet-ug", "ugc-net"],
       "interests": ["research", "problem-solving", "numbers", "biology", "technology"]
     },
     {
-      "slug": "data-scientist", "title": "Data Scientist", "category": "science-research", "stages": ["after_12th"],
+      "slug": "data-scientist",
+      "title": "Data Scientist",
+      "category": "science-research",
+      "stages": ["after_12th"],
       "summary": "Uses statistics and programming to find patterns in data and support decisions.",
       "overview": "Data scientists work with large datasets in companies, research and government. A good base in maths, statistics and programming matters more than any single degree name.",
-      "skills": ["Statistics and maths", "Python and SQL", "Data visualisation", "Machine learning basics", "Clear communication of results"],
-      "path": ["Class 12 with Maths (Statistics or Computer Science helps)", "BSc in Statistics, Maths, Computer Science or Data Science, or B.E./B.Tech", "Learn Python, SQL, statistics and machine learning through real projects", "Optional: MSc or M.Tech for advanced roles"],
+      "skills": [
+        "Statistics and maths",
+        "Python and SQL",
+        "Data visualisation",
+        "Machine learning basics",
+        "Clear communication of results"
+      ],
+      "path": [
+        "Class 12 with Maths (Statistics or Computer Science helps)",
+        "BSc in Statistics, Maths, Computer Science or Data Science, or B.E./B.Tech",
+        "Learn Python, SQL, statistics and machine learning through real projects",
+        "Optional: MSc or M.Tech for advanced roles"
+      ],
       "exam_slugs": ["cuet-ug", "jee-main", "kcet"],
       "interests": ["technology", "numbers", "research", "problem-solving"]
     },
     {
-      "slug": "business-manager", "title": "Business Manager", "category": "management", "stages": ["after_12th"],
+      "slug": "business-manager",
+      "title": "Business Manager",
+      "category": "management",
+      "stages": ["after_12th"],
       "summary": "Plans, organises and leads teams and operations in a company.",
       "overview": "Managers work in areas like operations, marketing, finance and HR. Many people enter management through an MBA after a bachelor's degree, and some choose 5-year integrated programmes right after Class 12.",
       "skills": ["Leadership", "Communication", "Planning", "Analytical thinking", "Negotiation"],
-      "path": ["Class 12 in any stream", "BBA/BMS or any degree, or a 5-year integrated programme through IPMAT or similar", "MBA/PGDM through CAT and similar exams", "Start in operations, marketing, finance or consulting and grow into leadership"],
+      "path": [
+        "Class 12 in any stream",
+        "BBA/BMS or any degree, or a 5-year integrated programme through IPMAT or similar",
+        "MBA/PGDM through CAT and similar exams",
+        "Start in operations, marketing, finance or consulting and grow into leadership"
+      ],
       "exam_slugs": ["ipmat", "cat", "cuet-ug"],
       "interests": ["business", "leadership", "communication", "numbers"]
     },
     {
-      "slug": "entrepreneur", "title": "Entrepreneur", "category": "management", "stages": ["after_12th"],
+      "slug": "entrepreneur",
+      "title": "Entrepreneur",
+      "category": "management",
+      "stages": ["after_12th"],
       "summary": "Starts and grows a business or startup around an idea.",
       "overview": "There is no fixed path to entrepreneurship. Students can begin small while studying, learn from startups and projects, and build skills in selling, building products and managing money.",
-      "skills": ["Problem solving", "Selling and communication", "Resilience", "Money basics", "Leadership"],
-      "path": ["Any stream works", "Start small: college clubs, side projects, internships at startups", "Study business basics through a degree or short courses", "Test your idea with real customers, then think about funding"],
+      "skills": [
+        "Problem solving",
+        "Selling and communication",
+        "Resilience",
+        "Money basics",
+        "Leadership"
+      ],
+      "path": [
+        "Any stream works",
+        "Start small: college clubs, side projects, internships at startups",
+        "Study business basics through a degree or short courses",
+        "Test your idea with real customers, then think about funding"
+      ],
       "exam_slugs": [],
       "interests": ["business", "leadership", "creativity", "problem-solving", "building"]
     },
     {
-      "slug": "teacher-professor", "title": "Teacher / Professor", "category": "arts-humanities", "stages": ["after_12th"],
+      "slug": "teacher-professor",
+      "title": "Teacher / Professor",
+      "category": "arts-humanities",
+      "stages": ["after_12th"],
       "summary": "Teaches students in schools or colleges and guides their learning.",
       "overview": "Teaching suits people who enjoy explaining ideas and helping others grow. School teaching and college teaching follow different qualification paths.",
-      "skills": ["Subject knowledge", "Clear explanation", "Patience", "Communication", "Classroom management"],
-      "path": ["Class 12 in any stream; choose degree subjects you want to teach", "Bachelor's degree, then B.Ed, or a 4-year integrated teacher education programme after Class 12", "Qualify a teacher eligibility test such as CTET or a state TET for school jobs", "For colleges: Master's degree and UGC NET (or PhD)"],
+      "skills": [
+        "Subject knowledge",
+        "Clear explanation",
+        "Patience",
+        "Communication",
+        "Classroom management"
+      ],
+      "path": [
+        "Class 12 in any stream; choose degree subjects you want to teach",
+        "Bachelor's degree, then B.Ed, or a 4-year integrated teacher education programme after Class 12",
+        "Qualify a teacher eligibility test such as CTET or a state TET for school jobs",
+        "For colleges: Master's degree and UGC NET (or PhD)"
+      ],
       "exam_slugs": ["ctet", "ugc-net"],
       "interests": ["teaching", "communication", "helping-people", "writing", "research"]
     },
     {
-      "slug": "journalist-media-professional", "title": "Journalist & Media Professional", "category": "arts-humanities", "stages": ["after_12th"],
+      "slug": "journalist-media-professional",
+      "title": "Journalist & Media Professional",
+      "category": "arts-humanities",
+      "stages": ["after_12th"],
       "summary": "Researches, writes and presents news and stories across print, TV and digital media.",
       "overview": "Media careers include reporting, editing, video, podcasts and digital content. Practical work, writing samples and internships often matter as much as the degree.",
-      "skills": ["Writing", "Curiosity and research", "Communication", "Ethics and fact-checking", "Storytelling across formats"],
-      "path": ["Class 12 in any stream", "BA in Journalism and Mass Communication, or any degree", "Optional: postgraduate diploma or Master's in media", "Build writing or video samples through internships and your own projects"],
+      "skills": [
+        "Writing",
+        "Curiosity and research",
+        "Communication",
+        "Ethics and fact-checking",
+        "Storytelling across formats"
+      ],
+      "path": [
+        "Class 12 in any stream",
+        "BA in Journalism and Mass Communication, or any degree",
+        "Optional: postgraduate diploma or Master's in media",
+        "Build writing or video samples through internships and your own projects"
+      ],
       "exam_slugs": ["cuet-ug"],
       "interests": ["writing", "communication", "creativity", "research"]
     }
   ],
   "exams": [
-    { "slug": "jee-main", "name": "JEE Main", "conducted_by": "National Testing Agency (NTA)", "category": "engineering-technology", "stages": ["after_12th"], "summary": "National entrance for B.E./B.Tech and some architecture and planning courses, and the gateway to JEE Advanced.", "eligibility": "Class 12 with Physics and Maths (Chemistry or another subject, depending on the paper). Check the official bulletin for current rules.", "mode_and_timing": "Usually held in the first half of the year, often in more than one session.", "official_url": "https://nta.ac.in" },
-    { "slug": "jee-advanced", "name": "JEE Advanced", "conducted_by": "One of the IITs, on rotation", "category": "engineering-technology", "stages": ["after_12th"], "summary": "Entrance for admission to the IITs, open only to students who qualify through JEE Main.", "eligibility": "Top performers in JEE Main, subject to the number of attempts and other rules in the official brochure.", "mode_and_timing": "Usually held after JEE Main, around mid-year.", "official_url": "https://jeeadv.ac.in" },
-    { "slug": "neet-ug", "name": "NEET UG", "conducted_by": "National Testing Agency (NTA)", "category": "healthcare", "stages": ["after_12th"], "summary": "National entrance for MBBS, BDS, AYUSH and related medical courses.", "eligibility": "Class 12 with Physics, Chemistry and Biology. Check the official bulletin for age and other rules.", "mode_and_timing": "Held once a year, usually in the first half of the year.", "official_url": "https://nta.ac.in" },
-    { "slug": "cuet-ug", "name": "CUET UG", "conducted_by": "National Testing Agency (NTA)", "category": "science-research", "stages": ["after_12th"], "summary": "Common entrance for undergraduate admission to central universities and many other participating universities.", "eligibility": "Class 12 pass or appearing, with subject requirements set by each university and course.", "mode_and_timing": "Usually held once a year, around mid-year. Check the official schedule.", "official_url": "https://nta.ac.in" },
-    { "slug": "kcet", "name": "KCET", "conducted_by": "Karnataka Examinations Authority (KEA)", "category": "engineering-technology", "stages": ["after_12th"], "summary": "Karnataka state entrance for engineering, pharmacy, agriculture and other professional courses in the state.", "eligibility": "Class 12 (PUC) with required subjects, along with Karnataka study and domicile rules. Check the KEA notice.", "mode_and_timing": "Usually held once a year in the first half of the year.", "official_url": "https://kea.kar.nic.in" },
-    { "slug": "comedk", "name": "COMEDK UGET", "conducted_by": "COMEDK", "category": "engineering-technology", "stages": ["after_12th"], "summary": "Entrance for admission to engineering seats in participating private colleges in Karnataka.", "eligibility": "Class 12 with Physics, Chemistry and Maths. Check the official brochure.", "mode_and_timing": "Usually held once a year, around mid-year.", "official_url": "https://www.comedk.org" },
-    { "slug": "bitsat", "name": "BITSAT", "conducted_by": "BITS Pilani", "category": "engineering-technology", "stages": ["after_12th"], "summary": "Online entrance for undergraduate programmes at BITS Pilani campuses.", "eligibility": "Class 12 with Physics, Chemistry and Maths and the minimum marks given in the official notice.", "mode_and_timing": "Computer-based, usually held in the first half of the year.", "official_url": "https://www.bitsadmission.com" },
-    { "slug": "clat", "name": "CLAT UG", "conducted_by": "Consortium of National Law Universities", "category": "law-public-policy", "stages": ["after_12th"], "summary": "Entrance for 5-year integrated law programmes at participating National Law Universities.", "eligibility": "Class 12 in any stream with the minimum marks stated by the Consortium.", "mode_and_timing": "Usually held once a year, often towards the end of the year.", "official_url": "https://consortiumofnlus.ac.in" },
-    { "slug": "ailet", "name": "AILET", "conducted_by": "National Law University, Delhi", "category": "law-public-policy", "stages": ["after_12th"], "summary": "Entrance for the 5-year law programme at NLU Delhi.", "eligibility": "Class 12 in any stream with the minimum marks stated in the official notice.", "mode_and_timing": "Usually held once a year, often towards the end of the year.", "official_url": "https://nludelhi.ac.in" },
-    { "slug": "uceed", "name": "UCEED", "conducted_by": "IIT Bombay", "category": "design-creative-arts", "stages": ["after_12th"], "summary": "Entrance for B.Des programmes at IITs and some other institutes.", "eligibility": "Class 12 in any stream. Check the official brochure for age and attempt rules.", "mode_and_timing": "Usually held once a year, early in the year.", "official_url": "https://www.uceed.iitb.ac.in" },
-    { "slug": "nid-dat", "name": "NID DAT", "conducted_by": "National Institute of Design (NID)", "category": "design-creative-arts", "stages": ["after_12th"], "summary": "Design aptitude test for admission to design programmes at NID.", "eligibility": "Class 12 in any stream. Check the official notice for programme rules.", "mode_and_timing": "Usually has more than one stage, held early in the year.", "official_url": "https://admissions.nid.edu" },
-    { "slug": "nift", "name": "NIFT Entrance", "conducted_by": "National Institute of Fashion Technology (NIFT)", "category": "design-creative-arts", "stages": ["after_12th"], "summary": "Entrance for fashion, textile and related design programmes at NIFT campuses.", "eligibility": "Class 12 in any stream for most design programmes. Check the official prospectus.", "mode_and_timing": "Usually held once a year, early in the year.", "official_url": "https://www.nift.ac.in" },
-    { "slug": "cat", "name": "CAT", "conducted_by": "Indian Institutes of Management (IIMs), on rotation", "category": "management", "stages": ["after_graduation"], "summary": "Common entrance for MBA/PGDM at IIMs and many other business schools.", "eligibility": "Bachelor's degree (final-year students can usually apply). Check the official notice for marks rules.", "mode_and_timing": "Computer-based, usually held once a year towards the end of the year.", "official_url": "https://iimcat.ac.in" },
-    { "slug": "ipmat", "name": "IPMAT", "conducted_by": "IIM Indore", "category": "management", "stages": ["after_12th"], "summary": "Entrance for the 5-year integrated management programme at IIM Indore. Similar integrated programmes at other IIMs use other tests such as JIPMAT.", "eligibility": "Class 12 pass or appearing, with age and marks rules in the official notice.", "mode_and_timing": "Usually held once a year, around mid-year.", "official_url": "https://www.iimidr.ac.in" },
-    { "slug": "upsc-cse", "name": "UPSC Civil Services Examination", "conducted_by": "Union Public Service Commission (UPSC)", "category": "law-public-policy", "stages": ["after_graduation"], "summary": "Exam for selection to IAS, IPS, IFS and other central services, with three stages: Prelims, Mains and Interview.", "eligibility": "Bachelor's degree in any subject, with age limits and attempt limits that you must check in the official notice.", "mode_and_timing": "Prelims is usually held in the first half of the year, followed by Mains and Interview.", "official_url": "https://upsc.gov.in" },
-    { "slug": "ca-foundation", "name": "CA Foundation", "conducted_by": "Institute of Chartered Accountants of India (ICAI)", "category": "commerce-finance", "stages": ["after_10th", "after_12th"], "summary": "First level of the CA course, followed by Intermediate and Final.", "eligibility": "Registration rules depend on your education level. Check ICAI for current requirements.", "mode_and_timing": "ICAI conducts exams at regular intervals each year. Check its schedule.", "official_url": "https://www.icai.org" },
-    { "slug": "iiser-iat", "name": "IISER Aptitude Test (IAT)", "conducted_by": "IISERs", "category": "science-research", "stages": ["after_12th"], "summary": "Entrance for the BS-MS dual degree programmes at the IISERs.", "eligibility": "Class 12 Science with the marks and subjects in the official notice.", "mode_and_timing": "Usually held once a year, around mid-year.", "official_url": "https://www.iiseradmission.in" },
-    { "slug": "ugc-net", "name": "UGC NET", "conducted_by": "National Testing Agency (NTA)", "category": "arts-humanities", "stages": ["after_graduation"], "summary": "Test for eligibility to become an Assistant Professor and for research fellowships in many subjects.", "eligibility": "Master's degree or equivalent with the marks given in the official notice.", "mode_and_timing": "Usually held twice a year.", "official_url": "https://nta.ac.in" },
-    { "slug": "ibps-po", "name": "IBPS PO", "conducted_by": "Institute of Banking Personnel Selection (IBPS)", "category": "commerce-finance", "stages": ["after_graduation"], "summary": "Recruitment exam for Probationary Officers in participating public sector banks.", "eligibility": "Bachelor's degree in any stream, with age limits in the official notice.", "mode_and_timing": "Held in stages once a year. Check the IBPS calendar.", "official_url": "https://www.ibps.in" },
-    { "slug": "nda", "name": "NDA & NA Exam", "conducted_by": "Union Public Service Commission (UPSC)", "category": "science-research", "stages": ["after_12th"], "summary": "Entrance for the National Defence Academy and Naval Academy, leading to officer careers in the armed forces.", "eligibility": "Class 12 (Maths and Physics needed for Air Force and Navy wings), with age and fitness rules in the UPSC notice.", "mode_and_timing": "Usually held twice a year.", "official_url": "https://upsc.gov.in" },
-    { "slug": "ctet", "name": "CTET", "conducted_by": "Central Board of Secondary Education (CBSE)", "category": "arts-humanities", "stages": ["after_graduation"], "summary": "Teacher eligibility test for teaching in central government and many other schools.", "eligibility": "Teacher education qualification as set in the official notice.", "mode_and_timing": "Usually held once or twice a year.", "official_url": "https://ctet.nic.in" }
+    {
+      "slug": "jee-main",
+      "name": "JEE Main",
+      "conducted_by": "National Testing Agency (NTA)",
+      "category": "engineering-technology",
+      "stages": ["after_12th"],
+      "summary": "National entrance for B.E./B.Tech and some architecture and planning courses, and the gateway to JEE Advanced.",
+      "eligibility": "Class 12 with Physics and Maths (Chemistry or another subject, depending on the paper). Check the official bulletin for current rules.",
+      "mode_and_timing": "Usually held in the first half of the year, often in more than one session.",
+      "official_url": "https://nta.ac.in"
+    },
+    {
+      "slug": "jee-advanced",
+      "name": "JEE Advanced",
+      "conducted_by": "One of the IITs, on rotation",
+      "category": "engineering-technology",
+      "stages": ["after_12th"],
+      "summary": "Entrance for admission to the IITs, open only to students who qualify through JEE Main.",
+      "eligibility": "Top performers in JEE Main, subject to the number of attempts and other rules in the official brochure.",
+      "mode_and_timing": "Usually held after JEE Main, around mid-year.",
+      "official_url": "https://jeeadv.ac.in"
+    },
+    {
+      "slug": "neet-ug",
+      "name": "NEET UG",
+      "conducted_by": "National Testing Agency (NTA)",
+      "category": "healthcare",
+      "stages": ["after_12th"],
+      "summary": "National entrance for MBBS, BDS, AYUSH and related medical courses.",
+      "eligibility": "Class 12 with Physics, Chemistry and Biology. Check the official bulletin for age and other rules.",
+      "mode_and_timing": "Held once a year, usually in the first half of the year.",
+      "official_url": "https://nta.ac.in"
+    },
+    {
+      "slug": "cuet-ug",
+      "name": "CUET UG",
+      "conducted_by": "National Testing Agency (NTA)",
+      "category": "science-research",
+      "stages": ["after_12th"],
+      "summary": "Common entrance for undergraduate admission to central universities and many other participating universities.",
+      "eligibility": "Class 12 pass or appearing, with subject requirements set by each university and course.",
+      "mode_and_timing": "Usually held once a year, around mid-year. Check the official schedule.",
+      "official_url": "https://nta.ac.in"
+    },
+    {
+      "slug": "kcet",
+      "name": "KCET",
+      "conducted_by": "Karnataka Examinations Authority (KEA)",
+      "category": "engineering-technology",
+      "stages": ["after_12th"],
+      "summary": "Karnataka state entrance for engineering, pharmacy, agriculture and other professional courses in the state.",
+      "eligibility": "Class 12 (PUC) with required subjects, along with Karnataka study and domicile rules. Check the KEA notice.",
+      "mode_and_timing": "Usually held once a year in the first half of the year.",
+      "official_url": "https://kea.kar.nic.in"
+    },
+    {
+      "slug": "comedk",
+      "name": "COMEDK UGET",
+      "conducted_by": "COMEDK",
+      "category": "engineering-technology",
+      "stages": ["after_12th"],
+      "summary": "Entrance for admission to engineering seats in participating private colleges in Karnataka.",
+      "eligibility": "Class 12 with Physics, Chemistry and Maths. Check the official brochure.",
+      "mode_and_timing": "Usually held once a year, around mid-year.",
+      "official_url": "https://www.comedk.org"
+    },
+    {
+      "slug": "bitsat",
+      "name": "BITSAT",
+      "conducted_by": "BITS Pilani",
+      "category": "engineering-technology",
+      "stages": ["after_12th"],
+      "summary": "Online entrance for undergraduate programmes at BITS Pilani campuses.",
+      "eligibility": "Class 12 with Physics, Chemistry and Maths and the minimum marks given in the official notice.",
+      "mode_and_timing": "Computer-based, usually held in the first half of the year.",
+      "official_url": "https://www.bitsadmission.com"
+    },
+    {
+      "slug": "clat",
+      "name": "CLAT UG",
+      "conducted_by": "Consortium of National Law Universities",
+      "category": "law-public-policy",
+      "stages": ["after_12th"],
+      "summary": "Entrance for 5-year integrated law programmes at participating National Law Universities.",
+      "eligibility": "Class 12 in any stream with the minimum marks stated by the Consortium.",
+      "mode_and_timing": "Usually held once a year, often towards the end of the year.",
+      "official_url": "https://consortiumofnlus.ac.in"
+    },
+    {
+      "slug": "ailet",
+      "name": "AILET",
+      "conducted_by": "National Law University, Delhi",
+      "category": "law-public-policy",
+      "stages": ["after_12th"],
+      "summary": "Entrance for the 5-year law programme at NLU Delhi.",
+      "eligibility": "Class 12 in any stream with the minimum marks stated in the official notice.",
+      "mode_and_timing": "Usually held once a year, often towards the end of the year.",
+      "official_url": "https://nludelhi.ac.in"
+    },
+    {
+      "slug": "uceed",
+      "name": "UCEED",
+      "conducted_by": "IIT Bombay",
+      "category": "design-creative-arts",
+      "stages": ["after_12th"],
+      "summary": "Entrance for B.Des programmes at IITs and some other institutes.",
+      "eligibility": "Class 12 in any stream. Check the official brochure for age and attempt rules.",
+      "mode_and_timing": "Usually held once a year, early in the year.",
+      "official_url": "https://www.uceed.iitb.ac.in"
+    },
+    {
+      "slug": "nid-dat",
+      "name": "NID DAT",
+      "conducted_by": "National Institute of Design (NID)",
+      "category": "design-creative-arts",
+      "stages": ["after_12th"],
+      "summary": "Design aptitude test for admission to design programmes at NID.",
+      "eligibility": "Class 12 in any stream. Check the official notice for programme rules.",
+      "mode_and_timing": "Usually has more than one stage, held early in the year.",
+      "official_url": "https://admissions.nid.edu"
+    },
+    {
+      "slug": "nift",
+      "name": "NIFT Entrance",
+      "conducted_by": "National Institute of Fashion Technology (NIFT)",
+      "category": "design-creative-arts",
+      "stages": ["after_12th"],
+      "summary": "Entrance for fashion, textile and related design programmes at NIFT campuses.",
+      "eligibility": "Class 12 in any stream for most design programmes. Check the official prospectus.",
+      "mode_and_timing": "Usually held once a year, early in the year.",
+      "official_url": "https://www.nift.ac.in"
+    },
+    {
+      "slug": "cat",
+      "name": "CAT",
+      "conducted_by": "Indian Institutes of Management (IIMs), on rotation",
+      "category": "management",
+      "stages": ["after_graduation"],
+      "summary": "Common entrance for MBA/PGDM at IIMs and many other business schools.",
+      "eligibility": "Bachelor's degree (final-year students can usually apply). Check the official notice for marks rules.",
+      "mode_and_timing": "Computer-based, usually held once a year towards the end of the year.",
+      "official_url": "https://iimcat.ac.in"
+    },
+    {
+      "slug": "ipmat",
+      "name": "IPMAT",
+      "conducted_by": "IIM Indore",
+      "category": "management",
+      "stages": ["after_12th"],
+      "summary": "Entrance for the 5-year integrated management programme at IIM Indore. Similar integrated programmes at other IIMs use other tests such as JIPMAT.",
+      "eligibility": "Class 12 pass or appearing, with age and marks rules in the official notice.",
+      "mode_and_timing": "Usually held once a year, around mid-year.",
+      "official_url": "https://www.iimidr.ac.in"
+    },
+    {
+      "slug": "upsc-cse",
+      "name": "UPSC Civil Services Examination",
+      "conducted_by": "Union Public Service Commission (UPSC)",
+      "category": "law-public-policy",
+      "stages": ["after_graduation"],
+      "summary": "Exam for selection to IAS, IPS, IFS and other central services, with three stages: Prelims, Mains and Interview.",
+      "eligibility": "Bachelor's degree in any subject, with age limits and attempt limits that you must check in the official notice.",
+      "mode_and_timing": "Prelims is usually held in the first half of the year, followed by Mains and Interview.",
+      "official_url": "https://upsc.gov.in"
+    },
+    {
+      "slug": "ca-foundation",
+      "name": "CA Foundation",
+      "conducted_by": "Institute of Chartered Accountants of India (ICAI)",
+      "category": "commerce-finance",
+      "stages": ["after_10th", "after_12th"],
+      "summary": "First level of the CA course, followed by Intermediate and Final.",
+      "eligibility": "Registration rules depend on your education level. Check ICAI for current requirements.",
+      "mode_and_timing": "ICAI conducts exams at regular intervals each year. Check its schedule.",
+      "official_url": "https://www.icai.org"
+    },
+    {
+      "slug": "iiser-iat",
+      "name": "IISER Aptitude Test (IAT)",
+      "conducted_by": "IISERs",
+      "category": "science-research",
+      "stages": ["after_12th"],
+      "summary": "Entrance for the BS-MS dual degree programmes at the IISERs.",
+      "eligibility": "Class 12 Science with the marks and subjects in the official notice.",
+      "mode_and_timing": "Usually held once a year, around mid-year.",
+      "official_url": "https://www.iiseradmission.in"
+    },
+    {
+      "slug": "ugc-net",
+      "name": "UGC NET",
+      "conducted_by": "National Testing Agency (NTA)",
+      "category": "arts-humanities",
+      "stages": ["after_graduation"],
+      "summary": "Test for eligibility to become an Assistant Professor and for research fellowships in many subjects.",
+      "eligibility": "Master's degree or equivalent with the marks given in the official notice.",
+      "mode_and_timing": "Usually held twice a year.",
+      "official_url": "https://nta.ac.in"
+    },
+    {
+      "slug": "ibps-po",
+      "name": "IBPS PO",
+      "conducted_by": "Institute of Banking Personnel Selection (IBPS)",
+      "category": "commerce-finance",
+      "stages": ["after_graduation"],
+      "summary": "Recruitment exam for Probationary Officers in participating public sector banks.",
+      "eligibility": "Bachelor's degree in any stream, with age limits in the official notice.",
+      "mode_and_timing": "Held in stages once a year. Check the IBPS calendar.",
+      "official_url": "https://www.ibps.in"
+    },
+    {
+      "slug": "nda",
+      "name": "NDA & NA Exam",
+      "conducted_by": "Union Public Service Commission (UPSC)",
+      "category": "science-research",
+      "stages": ["after_12th"],
+      "summary": "Entrance for the National Defence Academy and Naval Academy, leading to officer careers in the armed forces.",
+      "eligibility": "Class 12 (Maths and Physics needed for Air Force and Navy wings), with age and fitness rules in the UPSC notice.",
+      "mode_and_timing": "Usually held twice a year.",
+      "official_url": "https://upsc.gov.in"
+    },
+    {
+      "slug": "ctet",
+      "name": "CTET",
+      "conducted_by": "Central Board of Secondary Education (CBSE)",
+      "category": "arts-humanities",
+      "stages": ["after_graduation"],
+      "summary": "Teacher eligibility test for teaching in central government and many other schools.",
+      "eligibility": "Teacher education qualification as set in the official notice.",
+      "mode_and_timing": "Usually held once or twice a year.",
+      "official_url": "https://ctet.nic.in"
+    }
   ],
   "quiz": [
-    { "id": "q1", "question": "On a free Saturday, what would you enjoy most?", "options": [
-      { "text": "Building or fixing something", "tags": ["building", "technology"] },
-      { "text": "Drawing, designing or making videos", "tags": ["creativity"] },
-      { "text": "Reading or writing", "tags": ["writing", "communication"] },
-      { "text": "Helping or teaching someone", "tags": ["helping-people", "teaching"] } ] },
-    { "id": "q2", "question": "Which school subject do you enjoy most?", "options": [
-      { "text": "Maths or Physics", "tags": ["numbers", "problem-solving", "technology"] },
-      { "text": "Biology or Chemistry", "tags": ["biology", "research"] },
-      { "text": "Economics or Business Studies", "tags": ["business", "numbers"] },
-      { "text": "Languages or Social Science", "tags": ["writing", "communication", "law-policy"] } ] },
-    { "id": "q3", "question": "How do you like to work?", "options": [
-      { "text": "Alone on a hard problem", "tags": ["problem-solving", "research"] },
-      { "text": "In a team, leading others", "tags": ["leadership", "business"] },
-      { "text": "With people who need support", "tags": ["helping-people"] },
-      { "text": "Creating something new", "tags": ["creativity", "building"] } ] },
-    { "id": "q4", "question": "Which problem would you most like to solve?", "options": [
-      { "text": "Make apps and machines smarter", "tags": ["technology"] },
-      { "text": "Find cures and care for patients", "tags": ["biology", "helping-people", "research"] },
-      { "text": "Build a successful business", "tags": ["business", "leadership"] },
-      { "text": "Make rules and systems fairer", "tags": ["law-policy", "leadership"] } ] },
-    { "id": "q5", "question": "Which describes you best?", "options": [
-      { "text": "Curious and always asking why", "tags": ["research", "problem-solving"] },
-      { "text": "Organised and good with numbers", "tags": ["numbers", "business"] },
-      { "text": "Creative and expressive", "tags": ["creativity", "writing"] },
-      { "text": "Caring and patient", "tags": ["helping-people", "teaching"] } ] },
-    { "id": "q6", "question": "Which task sounds the most fun?", "options": [
-      { "text": "Solving puzzles or writing code", "tags": ["technology", "problem-solving"] },
-      { "text": "Debating and persuading", "tags": ["law-policy", "communication"] },
-      { "text": "Pitching an idea to a group", "tags": ["business", "leadership", "communication"] },
-      { "text": "Running an experiment", "tags": ["research", "biology"] } ] },
-    { "id": "q7", "question": "Which workplace appeals to you most?", "options": [
-      { "text": "A tech office or lab", "tags": ["technology", "building"] },
-      { "text": "A hospital or clinic", "tags": ["helping-people", "biology"] },
-      { "text": "A court or government office", "tags": ["law-policy", "leadership"] },
-      { "text": "A studio, classroom or newsroom", "tags": ["creativity", "teaching", "writing"] } ] },
-    { "id": "q8", "question": "What would you most like people to say about your work?", "options": [
-      { "text": "It works perfectly", "tags": ["building", "technology", "problem-solving"] },
-      { "text": "It really helped me", "tags": ["helping-people"] },
-      { "text": "It looks and sounds amazing", "tags": ["creativity", "communication"] },
-      { "text": "It made a big impact", "tags": ["leadership", "business"] } ] }
+    {
+      "id": "q1",
+      "question": "On a free Saturday, what would you enjoy most?",
+      "options": [
+        { "text": "Building or fixing something", "tags": ["building", "technology"] },
+        { "text": "Drawing, designing or making videos", "tags": ["creativity"] },
+        { "text": "Reading or writing", "tags": ["writing", "communication"] },
+        { "text": "Helping or teaching someone", "tags": ["helping-people", "teaching"] }
+      ]
+    },
+    {
+      "id": "q2",
+      "question": "Which school subject do you enjoy most?",
+      "options": [
+        { "text": "Maths or Physics", "tags": ["numbers", "problem-solving", "technology"] },
+        { "text": "Biology or Chemistry", "tags": ["biology", "research"] },
+        { "text": "Economics or Business Studies", "tags": ["business", "numbers"] },
+        {
+          "text": "Languages or Social Science",
+          "tags": ["writing", "communication", "law-policy"]
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "question": "How do you like to work?",
+      "options": [
+        { "text": "Alone on a hard problem", "tags": ["problem-solving", "research"] },
+        { "text": "In a team, leading others", "tags": ["leadership", "business"] },
+        { "text": "With people who need support", "tags": ["helping-people"] },
+        { "text": "Creating something new", "tags": ["creativity", "building"] }
+      ]
+    },
+    {
+      "id": "q4",
+      "question": "Which problem would you most like to solve?",
+      "options": [
+        { "text": "Make apps and machines smarter", "tags": ["technology"] },
+        {
+          "text": "Find cures and care for patients",
+          "tags": ["biology", "helping-people", "research"]
+        },
+        { "text": "Build a successful business", "tags": ["business", "leadership"] },
+        { "text": "Make rules and systems fairer", "tags": ["law-policy", "leadership"] }
+      ]
+    },
+    {
+      "id": "q5",
+      "question": "Which describes you best?",
+      "options": [
+        { "text": "Curious and always asking why", "tags": ["research", "problem-solving"] },
+        { "text": "Organised and good with numbers", "tags": ["numbers", "business"] },
+        { "text": "Creative and expressive", "tags": ["creativity", "writing"] },
+        { "text": "Caring and patient", "tags": ["helping-people", "teaching"] }
+      ]
+    },
+    {
+      "id": "q6",
+      "question": "Which task sounds the most fun?",
+      "options": [
+        { "text": "Solving puzzles or writing code", "tags": ["technology", "problem-solving"] },
+        { "text": "Debating and persuading", "tags": ["law-policy", "communication"] },
+        {
+          "text": "Pitching an idea to a group",
+          "tags": ["business", "leadership", "communication"]
+        },
+        { "text": "Running an experiment", "tags": ["research", "biology"] }
+      ]
+    },
+    {
+      "id": "q7",
+      "question": "Which workplace appeals to you most?",
+      "options": [
+        { "text": "A tech office or lab", "tags": ["technology", "building"] },
+        { "text": "A hospital or clinic", "tags": ["helping-people", "biology"] },
+        { "text": "A court or government office", "tags": ["law-policy", "leadership"] },
+        { "text": "A studio, classroom or newsroom", "tags": ["creativity", "teaching", "writing"] }
+      ]
+    },
+    {
+      "id": "q8",
+      "question": "What would you most like people to say about your work?",
+      "options": [
+        { "text": "It works perfectly", "tags": ["building", "technology", "problem-solving"] },
+        { "text": "It really helped me", "tags": ["helping-people"] },
+        { "text": "It looks and sounds amazing", "tags": ["creativity", "communication"] },
+        { "text": "It made a big impact", "tags": ["leadership", "business"] }
+      ]
+    }
   ]
 }

@@ -13,7 +13,7 @@ export function ComingSoonPage({
   icon: LucideIcon;
   titleKey: string;
   bodyKey: string;
-  extra?: string;
+  extra?: string | undefined;
 }) {
   const { t } = useI18n();
   return (

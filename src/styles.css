@@ -109,7 +109,12 @@
   --review: #fff4dc;
   --review-foreground: #7a4a00;
 
-  --gradient-hero: linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-indigo) 60%, var(--brand-violet) 130%);
+  --gradient-hero: linear-gradient(
+    135deg,
+    var(--brand-navy) 0%,
+    var(--brand-indigo) 60%,
+    var(--brand-violet) 130%
+  );
   --shadow-card: 0 1px 2px rgb(11 27 63 / 0.06), 0 8px 24px -12px rgb(11 27 63 / 0.18);
   --shadow-lift: 0 2px 4px rgb(11 27 63 / 0.08), 0 18px 36px -16px rgb(55 48 163 / 0.35);
 }
@@ -127,7 +132,9 @@
     font-family: var(--font-sans);
     line-height: 1.6;
   }
-  h1, h2, h3 {
+  h1,
+  h2,
+  h3 {
     font-family: var(--font-display);
     line-height: 1.15;
   }
@@ -148,13 +155,25 @@
 }
 
 @keyframes cc-rise {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: none; }
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 @keyframes cc-spin-slow {
-  from { transform: rotate(-12deg); }
-  50% { transform: rotate(12deg); }
-  to { transform: rotate(-12deg); }
+  from {
+    transform: rotate(-12deg);
+  }
+  50% {
+    transform: rotate(12deg);
+  }
+  to {
+    transform: rotate(-12deg);
+  }
 }
 @utility animate-rise {
   animation: cc-rise 0.6s ease-out both;
@@ -165,7 +184,9 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;

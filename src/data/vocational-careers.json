@@ -1,0 +1,84 @@
+[
+  {
+    "slug": "electrician-power-distribution",
+    "title": "Electrician — Power Distribution",
+    "category": "engineering-technology",
+    "stages": ["after_10th", "after_12th"],
+    "summary": "Train to install, test and maintain electrical distribution equipment.",
+    "overview": "This practical trade covers electrical circuits, motors, cables and distribution systems. The DGT curriculum includes safety procedures and supervised technical practice.",
+    "skills": [
+      "Electrical measurement",
+      "Reading circuit drawings",
+      "Fault finding",
+      "Safe working practices"
+    ],
+    "path": [
+      "Check the current trade entry requirements and recognised ITIs with your state admission authority.",
+      "Complete recognised Craftsmen Training Scheme training and assessment.",
+      "Explore technician work or apprenticeship opportunities; follow employer and local licensing requirements."
+    ],
+    "exam_slugs": [],
+    "interests": ["building", "technology", "problem-solving"],
+    "sources": [
+      {
+        "title": "DGT: Electrician — Power Distribution curriculum",
+        "url": "https://www.dgt.gov.in/sites/default/files/2023-12/Electrician-Power%20Distribution_CTS2.0_NSQF-4.pdf"
+      }
+    ]
+  },
+  {
+    "slug": "fitter",
+    "title": "Fitter — Mechanical Trade",
+    "category": "engineering-technology",
+    "stages": ["after_10th", "after_12th"],
+    "summary": "Develop practical skills for fitting and maintaining mechanical assemblies.",
+    "overview": "Fitter is a Craftsmen Training Scheme trade in manufacturing. It offers a practical training route for students interested in workshop tasks and mechanical equipment.",
+    "skills": [
+      "Precision measurement",
+      "Working with tools",
+      "Interpreting drawings",
+      "Workshop safety"
+    ],
+    "path": [
+      "Check DGT eligibility and state ITI admission requirements; Science and Mathematics or an accepted vocational equivalent are listed by DGT.",
+      "Apply to a recognised ITI offering the Fitter trade.",
+      "Complete training and assessment, then explore workshop work or apprenticeship options."
+    ],
+    "exam_slugs": [],
+    "interests": ["building", "problem-solving"],
+    "sources": [
+      { "title": "DGT: Fitter trade and eligibility", "url": "https://dgt.gov.in/en/node/925" },
+      {
+        "title": "DGT: Fitter curriculum",
+        "url": "https://dgt.gov.in/sites/default/files/2023-12/Fitter_CTS2.0_NSQF-4_0.pdf"
+      }
+    ]
+  },
+  {
+    "slug": "computer-operator-programming-assistant",
+    "title": "Computer Operator & Programming Assistant",
+    "category": "engineering-technology",
+    "stages": ["after_10th", "after_12th"],
+    "summary": "Build practical computer, office software and introductory programming skills.",
+    "overview": "COPA is a vocational training option under the Craftsmen Training Scheme. It introduces computer applications and programming, providing a starting point for further skill development.",
+    "skills": [
+      "Computer applications",
+      "Spreadsheets",
+      "Web fundamentals",
+      "Introductory programming"
+    ],
+    "path": [
+      "Check current COPA eligibility and admission requirements with your state ITI authority.",
+      "Choose a recognised institute offering COPA and complete the required training and assessment.",
+      "Develop a small portfolio of computer tasks and explore further training or relevant entry-level opportunities."
+    ],
+    "exam_slugs": [],
+    "interests": ["technology", "problem-solving", "numbers"],
+    "sources": [
+      {
+        "title": "DGT: COPA curriculum",
+        "url": "https://dgt.gov.in/sites/default/files/2024-12/COPA_CTS2.0_NSQF-3.5.pdf"
+      }
+    ]
+  }
+]

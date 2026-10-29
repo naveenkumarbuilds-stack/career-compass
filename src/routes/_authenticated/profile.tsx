@@ -1,3 +1,4 @@
+import { AccountPlanSync } from "@/components/site/AccountPlanSync";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState, type FormEvent } from "react";
 import { LogOut } from "lucide-react";
@@ -30,7 +31,11 @@ function ProfilePage() {
 
   useEffect(() => {
     if (profile)
-      setForm({ full_name: profile.full_name, preferred_language: profile.preferred_language, stage: profile.stage });
+      setForm({
+        full_name: profile.full_name,
+        preferred_language: profile.preferred_language,
+        stage: profile.stage,
+      });
   }, [profile]);
 
   async function onSubmit(e: FormEvent) {
@@ -67,32 +72,68 @@ function ProfilePage() {
 
         {!profile ? (
           <div role="status" className="space-y-4">
-            <p className="text-muted-foreground">{profileError ? t("profile.loadError") : t("common.loading")}</p>
-            {profileError && <Button variant="outline" onClick={() => void refreshProfile()}>{t("common.tryAgain")}</Button>}
+            <p className="text-muted-foreground">
+              {profileError ? t("profile.loadError") : t("common.loading")}
+            </p>
+            {profileError && (
+              <Button variant="outline" onClick={() => void refreshProfile()}>
+                {t("common.tryAgain")}
+              </Button>
+            )}
           </div>
         ) : (
           <form onSubmit={onSubmit} noValidate className="space-y-5">
-            <FormField id="full_name" label={t("auth.nameLabel")} error={errors.full_name}>
-              <input id="full_name" autoComplete="name" maxLength={100} className={inputClass} value={form.full_name}
-                onChange={(e) => setForm({ ...form, full_name: e.target.value })} aria-invalid={!!errors.full_name}
-                aria-describedby={describedBy("full_name", errors.full_name)} />
+            <FormField id="full_name" label={t("auth.nameLabel")} error={errors["full_name"]}>
+              <input
+                id="full_name"
+                autoComplete="name"
+                maxLength={100}
+                className={inputClass}
+                value={form.full_name}
+                onChange={(e) => setForm({ ...form, full_name: e.target.value })}
+                aria-invalid={!!errors["full_name"]}
+                aria-describedby={describedBy("full_name", errors["full_name"])}
+              />
             </FormField>
             <FormField id="email" label={t("auth.emailLabel")} hint={t("profile.emailReadOnly")}>
-              <input id="email" type="email" readOnly disabled className={inputClass} value={session?.user.email ?? ""}
-                aria-describedby="email-hint" />
+              <input
+                id="email"
+                type="email"
+                readOnly
+                disabled
+                className={inputClass}
+                value={session?.user.email ?? ""}
+                aria-describedby="email-hint"
+              />
             </FormField>
-            <ChoiceGroup name="preferred_language" legend={t("auth.languageLabel")} value={form.preferred_language}
-              error={errors.preferred_language}
-              options={[{ value: "en", label: t("language.en"), lang: "en" }, { value: "kn", label: t("language.kn"), lang: "kn" }]}
-              onChange={(v) => setForm({ ...form, preferred_language: v })} />
-            <ChoiceGroup name="stage" legend={t("stage.label")} value={form.stage} error={errors.stage}
-              options={[{ value: "after_10th", label: t("stage.after_10th") }, { value: "after_12th", label: t("stage.after_12th") }]}
-              onChange={(v) => setForm({ ...form, stage: v })} />
+            <ChoiceGroup
+              name="preferred_language"
+              legend={t("auth.languageLabel")}
+              value={form.preferred_language}
+              error={errors["preferred_language"]}
+              options={[
+                { value: "en", label: t("language.en"), lang: "en" },
+                { value: "kn", label: t("language.kn"), lang: "kn" },
+              ]}
+              onChange={(v) => setForm({ ...form, preferred_language: v })}
+            />
+            <ChoiceGroup
+              name="stage"
+              legend={t("stage.label")}
+              value={form.stage}
+              error={errors["stage"]}
+              options={[
+                { value: "after_10th", label: t("stage.after_10th") },
+                { value: "after_12th", label: t("stage.after_12th") },
+              ]}
+              onChange={(v) => setForm({ ...form, stage: v })}
+            />
             <Button type="submit" size="lg" className="w-full" disabled={busy}>
               {busy ? t("profile.saving") : t("profile.save")}
             </Button>
           </form>
         )}
+        <AccountPlanSync />
         <Button variant="outline" className="mt-4 w-full" onClick={() => void logout()}>
           <LogOut aria-hidden="true" /> {t("profile.logout")}
         </Button>

@@ -17,7 +17,14 @@ function Saved() {
   useEffect(() => {
     try {
       const raw = localStorage.getItem("careercompass_saved");
-      if (raw) setSaved(JSON.parse(raw));
+      if (raw) {
+        const value = JSON.parse(raw);
+        setSaved(
+          Array.isArray(value)
+            ? value.filter((item): item is string => typeof item === "string")
+            : [],
+        );
+      }
     } catch (e) {
       // ignore
     }
@@ -39,7 +46,9 @@ function Saved() {
     <div className="mx-auto max-w-5xl px-4 py-10">
       <header className="mb-8">
         <h1 className="text-4xl font-extrabold text-navy md:text-5xl">Saved Careers</h1>
-        <p className="mt-3 text-lg text-muted-foreground">Your bookmarked careers stored locally in this browser.</p>
+        <p className="mt-3 text-lg text-muted-foreground">
+          Your bookmarked careers stored locally in this browser.
+        </p>
       </header>
 
       {savedCareers.length === 0 ? (
@@ -47,7 +56,9 @@ function Saved() {
           <CardContent className="p-10 text-center">
             <Bookmark className="mx-auto size-12 text-muted-foreground" />
             <p className="mt-4 text-lg font-semibold text-navy">No saved careers yet</p>
-            <p className="mt-1 text-muted-foreground">Browse careers and save ones you're interested in.</p>
+            <p className="mt-1 text-muted-foreground">
+              Browse careers and save ones you're interested in.
+            </p>
             <div className="mt-6">
               <Link to="/careers" className={buttonVariants()}>
                 Browse Careers <ArrowRight />
@@ -65,10 +76,17 @@ function Saved() {
               <CardContent>
                 <p className="text-muted-foreground">{career.summary}</p>
                 <div className="mt-4 flex flex-wrap gap-2">
-                  <Link to="/careers/$slug" params={{ slug: career.slug }} className={buttonVariants({ variant: "outline" })}>
+                  <Link
+                    to="/careers/$slug"
+                    params={{ slug: career.slug }}
+                    className={buttonVariants({ variant: "outline" })}
+                  >
                     View Details <ArrowRight />
                   </Link>
-                  <button onClick={() => remove(career.slug)} className={buttonVariants({ variant: "ghost" })}>
+                  <button
+                    onClick={() => remove(career.slug)}
+                    className={buttonVariants({ variant: "ghost" })}
+                  >
                     <Trash2 className="mr-2 size-4" /> Remove
                   </button>
                 </div>

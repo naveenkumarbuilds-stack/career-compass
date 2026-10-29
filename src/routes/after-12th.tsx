@@ -1,5 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { GraduationCap, ArrowRight, BookOpen, Calculator, Palette, Scale, FlaskConical } from "lucide-react";
+import {
+  GraduationCap,
+  ArrowRight,
+  BookOpen,
+  Calculator,
+  Palette,
+  Scale,
+  FlaskConical,
+} from "lucide-react";
 import { pageMeta } from "@/i18n";
 import { stageGuides } from "@/data";
 import { buttonVariants } from "@/components/ui/button";
@@ -13,21 +21,33 @@ export const Route = createFileRoute("/after-12th")({
 function After12th() {
   const guide = stageGuides?.after_12th;
   const icons = [Calculator, FlaskConical, FlaskConical, BookOpen, Palette, Scale];
-  const tones = ["bg-primary/10 text-primary", "bg-teal/15 text-teal", "bg-violet/15 text-violet", "bg-coral/15 text-coral", "bg-amber/20 text-amber-700", "bg-indigo/15 text-indigo"];
+  const tones = [
+    "bg-primary/10 text-primary",
+    "bg-teal/15 text-teal",
+    "bg-violet/15 text-violet",
+    "bg-coral/15 text-coral",
+    "bg-amber/20 text-amber-700",
+    "bg-indigo/15 text-indigo",
+  ];
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10">
       <header className="mb-8">
-        <h1 className="text-4xl font-extrabold text-navy md:text-5xl">{guide?.title || "After 12th: your options by stream"}</h1>
+        <h1 className="text-4xl font-extrabold text-navy md:text-5xl">
+          {guide?.title || "After 12th: your options by stream"}
+        </h1>
         <p className="mt-3 max-w-3xl text-lg text-muted-foreground">
-          {guide?.intro || "After Class 12 you choose a degree and often an entrance exam. Start with your stream, then look at careers and exams."}
+          {guide?.intro ||
+            "After Class 12 you choose a degree and often an entrance exam. Start with your stream, then look at careers and exams."}
         </p>
-        <p className="mt-2 text-sm text-muted-foreground">Note: Content is from draft data for guidance only. Always confirm on official sources.</p>
+        <p className="mt-2 text-sm text-muted-foreground">
+          Note: Content is from draft data for guidance only. Always confirm on official sources.
+        </p>
       </header>
 
       <section className="grid gap-5 md:grid-cols-2">
         {(guide?.options || []).map((opt: any, idx: number) => {
-          const Icon = icons[idx % icons.length];
+          const Icon = icons[idx % icons.length]!;
           const tone = tones[idx % tones.length];
           return (
             <article key={idx} className="rounded-3xl bg-card p-6 shadow-card">

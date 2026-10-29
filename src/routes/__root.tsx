@@ -1,3 +1,4 @@
+import { AssistantLauncher } from "@/components/site/AssistantLauncher";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
@@ -123,11 +124,12 @@ function RootComponent() {
           <SkipLink />
           <ReviewBadge />
           <SiteHeader />
-          <main id="main" className="min-h-[70vh] pb-20 md:pb-0">
+          <main id="main" className="min-h-[70vh] pb-40 md:pb-24">
             <Outlet />
           </main>
           <SiteFooter />
           <BottomNav />
+          <AssistantLauncher />
           <Toaster position="top-center" />
         </AuthProvider>
       </I18nProvider>

@@ -24,7 +24,11 @@ export function LanguageSwitcher({ className }: { className?: string }) {
   }
 
   return (
-    <div role="group" aria-label={t("language.switchLabel")} className={cn("inline-flex rounded-xl border-2 border-border bg-card p-0.5", className)}>
+    <div
+      role="group"
+      aria-label={t("language.switchLabel")}
+      className={cn("inline-flex rounded-xl border-2 border-border bg-card p-0.5", className)}
+    >
       {LANGS.map((l) => (
         <button
           key={l}
@@ -34,7 +38,9 @@ export function LanguageSwitcher({ className }: { className?: string }) {
           onClick={() => void choose(l)}
           className={cn(
             "rounded-lg px-3 py-1 text-sm font-bold transition-colors",
-            lang === l ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground",
+            lang === l
+              ? "bg-primary text-primary-foreground"
+              : "text-muted-foreground hover:text-foreground",
           )}
         >
           {t(`language.${l}`)}

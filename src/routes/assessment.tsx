@@ -1,3 +1,5 @@
+import { recordAssessment } from "@/lib/planning";
+import { AssessmentHistory } from "@/components/site/StudentPlanning";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ArrowLeft, ArrowRight, RotateCcw, CheckCircle2 } from "lucide-react";
@@ -19,6 +21,7 @@ function Assessment() {
   const [showResults, setShowResults] = useState(false);
   const [results, setResults] = useState<any[]>([]);
 
+  const [saveNotice, setSaveNotice] = useState("");
   const progress = questions.length > 0 ? ((current + 1) / questions.length) * 100 : 0;
 
   function selectAnswer(option: any) {
@@ -67,6 +70,12 @@ function Assessment() {
     scored.sort((a, b) => b.score - a.score);
     const top = scored.filter((s) => s.score > 0).slice(0, 6);
     setResults(top);
+    try {
+      recordAssessment(top.map((item) => item.career.slug));
+      setSaveNotice("Results saved to your browser history.");
+    } catch {
+      setSaveNotice("Results are ready, but browser storage is unavailable.");
+    }
   }
 
   function restart() {
@@ -94,18 +103,24 @@ function Assessment() {
     return (
       <div className="mx-auto max-w-4xl px-4 py-10">
         <header className="mb-8">
-          <h1 className="text-4xl font-extrabold text-navy md:text-5xl">Suggested careers based on your interests.</h1>
+          <h1 className="text-4xl font-extrabold text-navy md:text-5xl">
+            Suggested careers based on your interests.
+          </h1>
           <p className="mt-3 text-lg text-muted-foreground">
-            This is a guidance suggestion based on shared interests — not an AI prediction, scientifically validated match, or guaranteed recommendation.
+            This is a guidance suggestion based on shared interests — not an AI prediction,
+            scientifically validated match, or guaranteed recommendation.
           </p>
         </header>
 
+        <p role="status">{saveNotice}</p>
+        <AssessmentHistory />
         {results.length === 0 ? (
           <Card className="rounded-3xl shadow-card">
             <CardContent className="p-6">
               <p className="text-lg font-semibold text-navy">No strong matches found</p>
               <p className="mt-1 text-muted-foreground">
-                Try exploring different interests or browse all careers to discover options worth considering.
+                Try exploring different interests or browse all careers to discover options worth
+                considering.
               </p>
               <div className="mt-4 flex flex-wrap gap-2">
                 <button onClick={restart} className={buttonVariants({ variant: "outline" })}>
@@ -133,11 +148,16 @@ function Assessment() {
                       <p className="mt-2 text-muted-foreground">{res.career.summary}</p>
                       {res.matchedTags.length > 0 && (
                         <p className="mt-2 text-sm text-muted-foreground">
-                          <span className="font-semibold text-navy">Shared interests:</span> {res.matchedTags.join(", ")}
+                          <span className="font-semibold text-navy">Shared interests:</span>{" "}
+                          {res.matchedTags.join(", ")}
                         </p>
                       )}
                     </div>
-                    <Link to="/careers/$slug" params={{ slug: res.career.slug }} className={buttonVariants({ variant: "outline" })}>
+                    <Link
+                      to="/careers/$slug"
+                      params={{ slug: res.career.slug }}
+                      className={buttonVariants({ variant: "outline" })}
+                    >
                       View Career <ArrowRight />
                     </Link>
                   </div>
@@ -162,9 +182,12 @@ function Assessment() {
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-10">
+      <AssessmentHistory />
       <header className="mb-6">
         <h1 className="text-3xl font-bold text-navy">Interest Assessment</h1>
-        <p className="mt-1 text-muted-foreground">One question per screen. Progress indicator below.</p>
+        <p className="mt-1 text-muted-foreground">
+          One question per screen. Progress indicator below.
+        </p>
       </header>
 
       <div className="mb-6">
@@ -175,7 +198,10 @@ function Assessment() {
           <span>{Math.round(progress)}% complete</span>
         </div>
         <div className="h-2 w-full rounded-full bg-muted">
-          <div className="h-2 rounded-full bg-primary transition-all" style={{ width: `${progress}%` }} />
+          <div
+            className="h-2 rounded-full bg-primary transition-all"
+            style={{ width: `${progress}%` }}
+          />
         </div>
       </div>
 
@@ -191,20 +217,26 @@ function Assessment() {
                   onClick={() => selectAnswer(opt)}
                   className={cn(
                     "flex items-start gap-3 rounded-2xl border p-4 text-left transition-all",
-                    selected ? "border-primary bg-primary/5" : "border-border hover:bg-muted/50"
+                    selected ? "border-primary bg-primary/5" : "border-border hover:bg-muted/50",
                   )}
                 >
                   <span
                     className={cn(
                       "mt-0.5 flex size-5 items-center justify-center rounded-full border",
-                      selected ? "border-primary bg-primary text-primary-foreground" : "border-muted-foreground"
+                      selected
+                        ? "border-primary bg-primary text-primary-foreground"
+                        : "border-muted-foreground",
                     )}
                   >
                     {selected && <CheckCircle2 className="size-3" />}
                   </span>
                   <span className="flex-1">
                     <span className="font-semibold text-navy">{opt.label}</span>
-                    {opt.description && <span className="mt-1 block text-sm text-muted-foreground">{opt.description}</span>}
+                    {opt.description && (
+                      <span className="mt-1 block text-sm text-muted-foreground">
+                        {opt.description}
+                      </span>
+                    )}
                   </span>
                 </button>
               );
@@ -212,11 +244,16 @@ function Assessment() {
           </div>
 
           <div className="mt-6 flex items-center justify-between">
-            <button onClick={prev} disabled={current === 0} className={buttonVariants({ variant: "outline", disabled: current === 0 })}>
+            <button
+              onClick={prev}
+              disabled={current === 0}
+              className={buttonVariants({ variant: "outline" })}
+            >
               <ArrowLeft className="mr-2 size-4" /> Previous
             </button>
-            <button onClick={next} disabled={!answers[current]} className={buttonVariants({ disabled: !answers[current] })}>
-              {current === questions.length - 1 ? "See Results" : "Next"} <ArrowRight className="ml-2 size-4" />
+            <button onClick={next} disabled={!answers[current]} className={buttonVariants()}>
+              {current === questions.length - 1 ? "See Results" : "Next"}{" "}
+              <ArrowRight className="ml-2 size-4" />
             </button>
           </div>
         </CardContent>

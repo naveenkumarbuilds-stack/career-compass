@@ -1,4 +1,13 @@
-import { Briefcase, Cpu, FlaskConical, HeartPulse, Landmark, Palette, Scale, BookOpen } from "lucide-react";
+import {
+  Briefcase,
+  Cpu,
+  FlaskConical,
+  HeartPulse,
+  Landmark,
+  Palette,
+  Scale,
+  BookOpen,
+} from "lucide-react";
 
 // Placeholder category list only — no career content in Phase 1.
 export const CATEGORIES = [

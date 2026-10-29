@@ -30,8 +30,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         setProfileState(null);
         return;
       }
-      const { data, error } = await supabase.from("profiles").select("*").eq("id", uid).maybeSingle();
-      setProfileError(!!error);
+      const { data, error } = await supabase
+        .from("profiles")
+        .select("*")
+        .eq("id", uid)
+        .maybeSingle();
+      setProfileError(!!error || !data);
       setProfileState(data ?? null);
       if (data && isLang(data.preferred_language)) setLang(data.preferred_language);
     },

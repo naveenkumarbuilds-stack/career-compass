@@ -1,3 +1,4 @@
+import { PersonalRoadmaps } from "@/components/site/StudentPlanning";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, School, GraduationCap, Briefcase } from "lucide-react";
 import { pageMeta } from "@/i18n";
@@ -13,9 +14,17 @@ function Roadmaps() {
     {
       title: "Software Development",
       path: [
-        { icon: School, label: "Class 10", desc: "Choose Science (PCM) or any stream with interest in computers" },
+        {
+          icon: School,
+          label: "Class 10",
+          desc: "Choose Science (PCM) or any stream with interest in computers",
+        },
         { icon: GraduationCap, label: "Class 11-12", desc: "PCM with Computer Science preferred" },
-        { icon: GraduationCap, label: "UG", desc: "B.Tech/B.E. in CS/IT or related (via JEE/other entrances)" },
+        {
+          icon: GraduationCap,
+          label: "UG",
+          desc: "B.Tech/B.E. in CS/IT or related (via JEE/other entrances)",
+        },
         { icon: Briefcase, label: "Career", desc: "Software Developer / Engineer" },
       ],
     },
@@ -24,7 +33,11 @@ function Roadmaps() {
       path: [
         { icon: School, label: "Class 10", desc: "Any stream (Commerce helpful)" },
         { icon: GraduationCap, label: "Class 11-12", desc: "Commerce stream recommended" },
-        { icon: GraduationCap, label: "CA Foundation", desc: "Register with ICAI and clear Foundation" },
+        {
+          icon: GraduationCap,
+          label: "CA Foundation",
+          desc: "Register with ICAI and clear Foundation",
+        },
         { icon: Briefcase, label: "Career", desc: "Chartered Accountant" },
       ],
     },
@@ -43,7 +56,11 @@ function Roadmaps() {
         { icon: School, label: "Class 10", desc: "Any stream" },
         { icon: GraduationCap, label: "Class 11-12", desc: "Commerce preferred" },
         { icon: GraduationCap, label: "UG", desc: "B.Com/BBA/Economics (or other)" },
-        { icon: Briefcase, label: "Career", desc: "Banking/Finance Professional (via exams or campus)" },
+        {
+          icon: Briefcase,
+          label: "Career",
+          desc: "Banking/Finance Professional (via exams or campus)",
+        },
       ],
     },
   ];
@@ -51,14 +68,17 @@ function Roadmaps() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-10">
       <header className="mb-8">
-        <h1 className="text-4xl font-extrabold text-navy md:text-5xl">Interactive Career Roadmaps</h1>
+        <h1 className="text-4xl font-extrabold text-navy md:text-5xl">Career Roadmaps</h1>
         <p className="mt-3 max-w-2xl text-lg text-muted-foreground">
-          Visualize possible pathways from Class 10 to your chosen career. These are illustrative examples — multiple routes exist and requirements may vary.
+          Visualize possible pathways from Class 10 to your chosen career. These are illustrative
+          examples — multiple routes exist and requirements may vary.
         </p>
       </header>
 
+      <PersonalRoadmaps />
+      <h2 className="mb-4 text-2xl font-bold">Two example pathways</h2>
       <div className="grid gap-6">
-        {roadmaps.map((roadmap, idx) => (
+        {roadmaps.slice(0, 2).map((roadmap, idx) => (
           <section key={idx} className="rounded-3xl bg-card p-6 shadow-card">
             <h2 className="text-2xl font-bold text-navy">{roadmap.title}</h2>
             <div className="mt-6 grid gap-4 md:grid-cols-4">

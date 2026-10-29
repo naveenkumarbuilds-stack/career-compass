@@ -1,54 +1,69 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { FileText, Info } from "lucide-react";
-import { pageMeta } from "@/i18n";
-import { dataDisclaimer } from "@/data";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-
-export const Route = createFileRoute("/resources")({
-  head: () => pageMeta("meta.resourcesTitle", "meta.resourcesDescription"),
-  component: Resources,
-});
-
+import { createFileRoute, Link } from "@tanstack/react-router";
+export const Route = createFileRoute("/resources")({ component: Resources });
+const resources = [
+  {
+    name: "SWAYAM",
+    url: "https://swayam.gov.in/",
+    body: "Explore courses from participating institutions. Search a subject, read the prerequisites and choose a course that fits your interests.",
+  },
+  {
+    name: "Bharat Skills",
+    url: "https://bharatskill.gov.in/",
+    body: "Find vocational learning material, trade curricula, videos and practice resources. Useful when exploring ITI and practical skill pathways.",
+  },
+  {
+    name: "National Career Service",
+    url: "https://www.ncs.gov.in/",
+    body: "Explore government career services, guidance and career centres. Read the official service details before registering.",
+  },
+];
 function Resources() {
   return (
     <div className="mx-auto max-w-5xl px-4 py-10">
-      <header className="mb-8">
-        <h1 className="text-4xl font-extrabold text-navy md:text-5xl">Resources</h1>
-        <p className="mt-3 text-lg text-muted-foreground">Helpful guidance and important notes for using CareerCompass.</p>
-      </header>
-
-      <div className="grid gap-6">
-        <Card className="rounded-3xl shadow-card">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-xl text-navy">
-              <Info className="size-5" /> Content Verification Status
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground">
-              Much of the career, exam and guidance content in this app comes from a draft dataset. It is <span className="font-semibold">not verified against official sources</span>.
-            </p>
-            <p className="mt-2 text-sm text-muted-foreground">{dataDisclaimer}</p>
-          </CardContent>
-        </Card>
-
-        <Card className="rounded-3xl shadow-card">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-xl text-navy">
-              <FileText className="size-5" /> Tips for Students
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <ul className="grid gap-2 text-muted-foreground">
-              <li>• Choose based on interest first, then marks and entry rules.</li>
-              <li>• Talk to seniors and working professionals before deciding.</li>
-              <li>• Always check official websites for exam dates, eligibility, fees and updates.</li>
-              <li>• A career path can have multiple routes — don't feel locked in.</li>
-              <li>• Skills and projects often matter as much as degrees in many fields.</li>
-            </ul>
-          </CardContent>
-        </Card>
+      <h1 className="text-4xl font-extrabold text-navy">Student resources</h1>
+      <p className="my-4 text-lg text-muted-foreground">
+        Use these resources to turn a career idea into a practical next step.
+      </p>
+      <div className="grid gap-5 md:grid-cols-3">
+        {resources.map((r) => (
+          <article key={r.url} className="rounded-3xl bg-card p-6 shadow-card">
+            <h2 className="text-2xl font-bold">{r.name}</h2>
+            <p className="my-4">{r.body}</p>
+            <a
+              className="text-primary underline"
+              href={r.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open official website ↗
+            </a>
+          </article>
+        ))}
       </div>
+      <section className="mt-8 rounded-3xl bg-card p-6 shadow-card">
+        <h2 className="text-2xl font-bold">Before choosing a course</h2>
+        <ol className="my-4 list-decimal space-y-3 pl-5">
+          <li>Shortlist careers whose daily work interests you.</li>
+          <li>
+            Confirm subject requirements and recognition with the institution or relevant regulator.
+          </li>
+          <li>Ask about practical training, total costs and available support.</li>
+          <li>Try a small project or introductory lesson before committing.</li>
+          <li>Discuss your shortlist with a teacher, guardian or qualified counsellor.</li>
+        </ol>
+        <div className="flex flex-wrap gap-5">
+          <Link to="/careers" className="text-primary underline">
+            Explore and compare careers
+          </Link>
+          <Link to="/roadmaps" className="text-primary underline">
+            Build a plan and download its PDF
+          </Link>
+        </div>
+      </section>
+      <p className="mt-8 text-sm text-muted-foreground">
+        Our pathway summaries are guidance examples. Confirm current admissions and professional
+        requirements using official sources.
+      </p>
     </div>
   );
 }

@@ -17,7 +17,9 @@ function ExamDetail() {
     return (
       <div className="mx-auto max-w-4xl px-4 py-10">
         <h1 className="text-3xl font-bold text-navy">Exam not found</h1>
-        <p className="mt-2 text-muted-foreground">The exam you're looking for doesn't exist in the current data.</p>
+        <p className="mt-2 text-muted-foreground">
+          The exam you're looking for doesn't exist in the current data.
+        </p>
         <div className="mt-6">
           <Link to="/exams" className={buttonVariants({ variant: "outline" })}>
             <ArrowLeft /> Back to Exams
@@ -30,7 +32,10 @@ function ExamDetail() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-10">
       <div className="mb-6">
-        <Link to="/exams" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
+        <Link
+          to="/exams"
+          className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
+        >
           <ArrowLeft className="size-4" /> Back to Exam Directory
         </Link>
       </div>
@@ -51,7 +56,10 @@ function ExamDetail() {
           <p className="mt-2 text-muted-foreground">{exam.eligibility_summary}</p>
           <div className="mt-4 flex items-start gap-2 rounded-2xl bg-muted/60 p-4 text-sm text-muted-foreground">
             <Info className="mt-0.5 size-4 shrink-0" />
-            <span>Current eligibility, dates, application process and fees change often. Always confirm on the official website before applying.</span>
+            <span>
+              Current eligibility, dates, application process and fees change often. Always confirm
+              on the official website before applying.
+            </span>
           </div>
         </section>
 
@@ -59,17 +67,26 @@ function ExamDetail() {
           <section className="rounded-3xl bg-card p-6 shadow-card">
             <h2 className="text-2xl font-bold text-navy">Relevant education stage</h2>
             <p className="mt-2 text-muted-foreground">
-              {exam.stages.map((s: string) => (s === "after_10th" ? "After 10th" : "After 12th")).join(", ")}
+              {exam.stages
+                .map((s: string) => (s === "after_10th" ? "After 10th" : "After 12th"))
+                .join(", ")}
             </p>
           </section>
         )}
 
         <section className="rounded-3xl bg-card p-6 shadow-card">
           <h2 className="text-2xl font-bold text-navy">Official information</h2>
-          <p className="mt-2 text-muted-foreground">For the most accurate and up-to-date information, visit the official website.</p>
+          <p className="mt-2 text-muted-foreground">
+            For the most accurate and up-to-date information, visit the official website.
+          </p>
           {exam.official_url && (
             <div className="mt-4">
-              <a href={exam.official_url} target="_blank" rel="noopener noreferrer" className={buttonVariants()}>
+              <a
+                href={exam.official_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={buttonVariants()}
+              >
                 Visit Official Website <ExternalLink className="ml-2 size-4" />
               </a>
             </div>

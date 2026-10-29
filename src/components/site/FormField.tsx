@@ -15,8 +15,8 @@ export function FormField({
 }: {
   id: string;
   label: string;
-  hint?: string;
-  error?: string;
+  hint?: string | undefined;
+  error?: string | undefined;
   children: ReactNode;
 }) {
   const { t } = useI18n();
@@ -57,7 +57,7 @@ export function ChoiceGroup<T extends string>({
   value: T | "";
   options: { value: T; label: string; lang?: string }[];
   onChange: (v: T) => void;
-  error?: string;
+  error?: string | undefined;
 }) {
   const { t } = useI18n();
   return (
@@ -69,7 +69,9 @@ export function ChoiceGroup<T extends string>({
             key={o.value}
             className={cn(
               "flex cursor-pointer items-center justify-center rounded-xl border-2 px-3 py-3 text-center font-bold transition-colors has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-ring",
-              value === o.value ? "border-primary bg-primary/10 text-primary" : "border-input bg-card text-foreground",
+              value === o.value
+                ? "border-primary bg-primary/10 text-primary"
+                : "border-input bg-card text-foreground",
             )}
           >
             <input

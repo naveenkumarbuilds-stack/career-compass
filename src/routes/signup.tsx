@@ -14,7 +14,7 @@ type Stage = "after_10th" | "after_12th";
 
 export const Route = createFileRoute("/signup")({
   validateSearch: (s: Record<string, unknown>): { redirect?: string } =>
-    typeof s.redirect === "string" ? { redirect: s.redirect } : {},
+    typeof s["redirect"] === "string" ? { redirect: s["redirect"] } : {},
   head: () => pageMeta("meta.signupTitle", "meta.signupDescription"),
   component: Signup,
 });
@@ -43,7 +43,8 @@ function Signup() {
     if (ready && session && !sentTo) navigate({ to: target, replace: true });
   }, [ready, session, sentTo, target, navigate]);
 
-  const set = <K extends keyof typeof form>(k: K, v: (typeof form)[K]) => setForm((f) => ({ ...f, [k]: v }));
+  const set = <K extends keyof typeof form>(k: K, v: (typeof form)[K]) =>
+    setForm((f) => ({ ...f, [k]: v }));
 
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
@@ -63,7 +64,8 @@ function Signup() {
         },
       });
       if (error) return setFormError(authErrorKey(error));
-      if (data.user && data.user.identities?.length === 0) return setFormError("errors.userExists");
+      if (data.user && data.user.identities?.length === 0)
+        return setFormError("errors['user']Exists");
       setLang(meta.preferred_language);
       if (data.session) {
         toast.success(t("auth.loginSuccess"));
@@ -96,40 +98,85 @@ function Signup() {
   return (
     <AuthCard title={t("auth.signupTitle")} subtitle={t("auth.signupSubtitle")}>
       <form onSubmit={onSubmit} noValidate className="space-y-5">
-        <FormField id="full_name" label={t("auth.nameLabel")} error={errors.full_name}>
-          <input id="full_name" autoComplete="name" maxLength={100} className={inputClass} value={form.full_name}
-            onChange={(e) => set("full_name", e.target.value)} aria-invalid={!!errors.full_name}
-            aria-describedby={describedBy("full_name", errors.full_name)} />
+        <FormField id="full_name" label={t("auth.nameLabel")} error={errors["full_name"]}>
+          <input
+            id="full_name"
+            autoComplete="name"
+            maxLength={100}
+            className={inputClass}
+            value={form.full_name}
+            onChange={(e) => set("full_name", e.target.value)}
+            aria-invalid={!!errors["full_name"]}
+            aria-describedby={describedBy("full_name", errors["full_name"])}
+          />
         </FormField>
-        <FormField id="email" label={t("auth.emailLabel")} error={errors.email}>
-          <input id="email" type="email" autoComplete="email" className={inputClass} value={form.email}
-            onChange={(e) => set("email", e.target.value)} aria-invalid={!!errors.email}
-            aria-describedby={describedBy("email", errors.email)} />
+        <FormField id="email" label={t("auth.emailLabel")} error={errors["email"]}>
+          <input
+            id="email"
+            type="email"
+            autoComplete="email"
+            className={inputClass}
+            value={form.email}
+            onChange={(e) => set("email", e.target.value)}
+            aria-invalid={!!errors["email"]}
+            aria-describedby={describedBy("email", errors["email"])}
+          />
         </FormField>
-        <FormField id="password" label={t("auth.passwordLabel")} hint={t("auth.passwordHint")} error={errors.password}>
-          <PasswordInput id="password" value={form.password} onChange={(v) => set("password", v)} show={show} setShow={setShow}
-            error={errors.password} hint={t("auth.passwordHint")} autoComplete="new-password" />
+        <FormField
+          id="password"
+          label={t("auth.passwordLabel")}
+          hint={t("auth.passwordHint")}
+          error={errors["password"]}
+        >
+          <PasswordInput
+            id="password"
+            value={form.password}
+            onChange={(v) => set("password", v)}
+            show={show}
+            setShow={setShow}
+            error={errors["password"]}
+            hint={t("auth.passwordHint")}
+            autoComplete="new-password"
+          />
         </FormField>
-        <ChoiceGroup name="preferred_language" legend={t("auth.languageLabel")} value={form.preferred_language}
-          error={errors.preferred_language}
-          options={[{ value: "en", label: t("language.en"), lang: "en" }, { value: "kn", label: t("language.kn"), lang: "kn" }]}
-          onChange={(v) => set("preferred_language", v)} />
-        <ChoiceGroup name="stage" legend={t("auth.stageLabel")} value={form.stage} error={errors.stage}
-          options={[{ value: "after_10th", label: t("stage.after_10th") }, { value: "after_12th", label: t("stage.after_12th") }]}
-          onChange={(v) => set("stage", v)} />
+        <ChoiceGroup
+          name="preferred_language"
+          legend={t("auth.languageLabel")}
+          value={form.preferred_language}
+          error={errors["preferred_language"]}
+          options={[
+            { value: "en", label: t("language.en"), lang: "en" },
+            { value: "kn", label: t("language.kn"), lang: "kn" },
+          ]}
+          onChange={(v) => set("preferred_language", v)}
+        />
+        <ChoiceGroup
+          name="stage"
+          legend={t("auth.stageLabel")}
+          value={form.stage}
+          error={errors["stage"]}
+          options={[
+            { value: "after_10th", label: t("stage.after_10th") },
+            { value: "after_12th", label: t("stage.after_12th") },
+          ]}
+          onChange={(v) => set("stage", v)}
+        />
 
         <div className="space-y-1.5">
           <label className="flex cursor-pointer items-start gap-3 rounded-xl border-2 border-input bg-card p-4">
-            <input type="checkbox" checked={form.guardian_permission_ack}
+            <input
+              type="checkbox"
+              checked={form.guardian_permission_ack}
               onChange={(e) => set("guardian_permission_ack", e.target.checked)}
-              aria-invalid={!!errors.guardian_permission_ack}
-              aria-describedby={errors.guardian_permission_ack ? "guardian-error" : undefined}
-              className="mt-1 size-5 shrink-0 accent-primary" />
+              aria-invalid={!!errors["guardian_permission_ack"]}
+              aria-describedby={errors["guardian_permission_ack"] ? "guardian-error" : undefined}
+              className="mt-1 size-5 shrink-0 accent-primary"
+            />
             <span className="font-semibold">{t("auth.guardianLabel")}</span>
           </label>
-          {errors.guardian_permission_ack && (
+          {errors["guardian_permission_ack"] && (
             <p id="guardian-error" role="alert" className="text-sm font-semibold text-destructive">
-              {t(errors.guardian_permission_ack)}
+              {t(errors["guardian_permission_ack"])}
             </p>
           )}
         </div>
@@ -143,7 +190,10 @@ function Signup() {
         </div>
 
         {formError && (
-          <p role="alert" className="rounded-xl bg-destructive/10 px-4 py-3 font-semibold text-destructive">
+          <p
+            role="alert"
+            className="rounded-xl bg-destructive/10 px-4 py-3 font-semibold text-destructive"
+          >
             {t(formError)}
           </p>
         )}
@@ -153,7 +203,11 @@ function Signup() {
       </form>
       <p className="mt-6 text-center text-muted-foreground">
         {t("auth.haveAccount")}{" "}
-        <Link to="/login" search={search.redirect ? { redirect: search.redirect } : {}} className="font-bold text-primary underline-offset-4 hover:underline">
+        <Link
+          to="/login"
+          search={search.redirect ? { redirect: search.redirect } : {}}
+          className="font-bold text-primary underline-offset-4 hover:underline"
+        >
           {t("auth.goLogin")}
         </Link>
       </p>

@@ -31,11 +31,7 @@ dist-ssr
 *.sln
 *.sw?
 
-# Local credentials and environment configuration
+# Local credentials
 .env
 .env.*
 !.env.example
-*.pem
-*.p12
-*.pfx
-*.key

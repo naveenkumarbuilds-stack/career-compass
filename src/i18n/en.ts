@@ -98,11 +98,13 @@ const en = {
   },
   comingSoon: {
     exploreTitle: "Career explorer",
-    exploreBody: "Detailed guides to careers and the different routes into them are being prepared.",
+    exploreBody:
+      "Detailed guides to careers and the different routes into them are being prepared.",
     examsTitle: "Entrance exams",
     examsBody: "Guides to entrance exams after 10th and 12th are being prepared.",
     aiTitle: "AI Guide",
-    aiBody: "A friendly guide that asks about your interests and suggests options worth exploring is being built.",
+    aiBody:
+      "A friendly guide that asks about your interests and suggests options worth exploring is being built.",
     selectedCategory: "You picked: {name}",
     note: "Nothing here yet — we only publish information we can verify.",
   },
@@ -117,7 +119,8 @@ const en = {
     passwordHint: "At least 8 characters.",
     languageLabel: "Preferred language",
     stageLabel: "Where are you now?",
-    guardianLabel: "If you are under 18, I confirm I have permission from my parent or guardian to create this account.",
+    guardianLabel:
+      "If you are under 18, I confirm I have permission from my parent or guardian to create this account.",
     privacyTitle: "How we use your details",
     privacyBody:
       "We use your name to greet you, your email to log you in, and your language and stage to show you relevant guidance. Your profile is private — only you can see it. We never sell your data or send marketing.",
@@ -130,7 +133,8 @@ const en = {
     goSignup: "Create an account",
     goLogin: "Log in",
     checkEmailTitle: "Check your email",
-    checkEmailBody: "We sent a confirmation link to {email}. Open it to activate your account, then log in.",
+    checkEmailBody:
+      "We sent a confirmation link to {email}. Open it to activate your account, then log in.",
     loginSuccess: "You're logged in",
     signupSuccess: "Account created — please confirm your email",
     loggedOut: "You've been logged out",

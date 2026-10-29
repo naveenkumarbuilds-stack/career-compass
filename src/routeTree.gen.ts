@@ -11,16 +11,16 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
-import { Route as AboutRouteImport } from './routes/about'
 import { Route as After10thRouteImport } from './routes/after-10th'
 import { Route as After12thRouteImport } from './routes/after-12th'
 import { Route as AiGuideRouteImport } from './routes/ai-guide'
 import { Route as AssessmentRouteImport } from './routes/assessment'
 import { Route as CareersRouteImport } from './routes/careers'
-import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ExamsRouteImport } from './routes/exams'
 import { Route as ExploreRouteImport } from './routes/explore'
+import { Route as ForgotPasswordRouteImport } from './routes/forgot-password'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as ResourcesRouteImport } from './routes/resources'
 import { Route as RoadmapsRouteImport } from './routes/roadmaps'
 import { Route as SavedRouteImport } from './routes/saved'
@@ -38,11 +38,6 @@ const IndexRoute = IndexRouteImport.update({
 } as any)
 const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
   id: '/_authenticated',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AboutRoute = AboutRouteImport.update({
-  id: '/about',
-  path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
 const After10thRoute = After10thRouteImport.update({
@@ -70,11 +65,6 @@ const CareersRoute = CareersRouteImport.update({
   path: '/careers',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ExamsRoute = ExamsRouteImport.update({
   id: '/exams',
   path: '/exams',
@@ -85,9 +75,19 @@ const ExploreRoute = ExploreRouteImport.update({
   path: '/explore',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ForgotPasswordRoute = ForgotPasswordRouteImport.update({
+  id: '/forgot-password',
+  path: '/forgot-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResetPasswordRoute = ResetPasswordRouteImport.update({
+  id: '/reset-password',
+  path: '/reset-password',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ResourcesRoute = ResourcesRouteImport.update({
@@ -138,16 +138,16 @@ const ExamsSlugRoute = ExamsSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
   '/after-10th': typeof After10thRoute
   '/after-12th': typeof After12thRoute
   '/ai-guide': typeof AiGuideRoute
   '/assessment': typeof AssessmentRoute
   '/careers': typeof CareersRouteWithChildren
-  '/contact': typeof ContactRoute
   '/exams': typeof ExamsRouteWithChildren
   '/explore': typeof ExploreRoute
+  '/forgot-password': typeof ForgotPasswordRoute
   '/login': typeof LoginRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/resources': typeof ResourcesRoute
   '/roadmaps': typeof RoadmapsRoute
   '/saved': typeof SavedRoute
@@ -160,14 +160,14 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
   '/after-10th': typeof After10thRoute
   '/after-12th': typeof After12thRoute
   '/ai-guide': typeof AiGuideRoute
   '/assessment': typeof AssessmentRoute
-  '/contact': typeof ContactRoute
   '/explore': typeof ExploreRoute
+  '/forgot-password': typeof ForgotPasswordRoute
   '/login': typeof LoginRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/resources': typeof ResourcesRoute
   '/roadmaps': typeof RoadmapsRoute
   '/saved': typeof SavedRoute
@@ -182,16 +182,16 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
-  '/about': typeof AboutRoute
   '/after-10th': typeof After10thRoute
   '/after-12th': typeof After12thRoute
   '/ai-guide': typeof AiGuideRoute
   '/assessment': typeof AssessmentRoute
   '/careers': typeof CareersRouteWithChildren
-  '/contact': typeof ContactRoute
   '/exams': typeof ExamsRouteWithChildren
   '/explore': typeof ExploreRoute
+  '/forgot-password': typeof ForgotPasswordRoute
   '/login': typeof LoginRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/resources': typeof ResourcesRoute
   '/roadmaps': typeof RoadmapsRoute
   '/saved': typeof SavedRoute
@@ -206,16 +206,16 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/about'
     | '/after-10th'
     | '/after-12th'
     | '/ai-guide'
     | '/assessment'
     | '/careers'
-    | '/contact'
     | '/exams'
     | '/explore'
+    | '/forgot-password'
     | '/login'
+    | '/reset-password'
     | '/resources'
     | '/roadmaps'
     | '/saved'
@@ -228,14 +228,14 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/about'
     | '/after-10th'
     | '/after-12th'
     | '/ai-guide'
     | '/assessment'
-    | '/contact'
     | '/explore'
+    | '/forgot-password'
     | '/login'
+    | '/reset-password'
     | '/resources'
     | '/roadmaps'
     | '/saved'
@@ -249,16 +249,16 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/_authenticated'
-    | '/about'
     | '/after-10th'
     | '/after-12th'
     | '/ai-guide'
     | '/assessment'
     | '/careers'
-    | '/contact'
     | '/exams'
     | '/explore'
+    | '/forgot-password'
     | '/login'
+    | '/reset-password'
     | '/resources'
     | '/roadmaps'
     | '/saved'
@@ -273,16 +273,16 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
-  AboutRoute: typeof AboutRoute
   After10thRoute: typeof After10thRoute
   After12thRoute: typeof After12thRoute
   AiGuideRoute: typeof AiGuideRoute
   AssessmentRoute: typeof AssessmentRoute
   CareersRoute: typeof CareersRouteWithChildren
-  ContactRoute: typeof ContactRoute
   ExamsRoute: typeof ExamsRouteWithChildren
   ExploreRoute: typeof ExploreRoute
+  ForgotPasswordRoute: typeof ForgotPasswordRoute
   LoginRoute: typeof LoginRoute
+  ResetPasswordRoute: typeof ResetPasswordRoute
   ResourcesRoute: typeof ResourcesRoute
   RoadmapsRoute: typeof RoadmapsRoute
   SavedRoute: typeof SavedRoute
@@ -303,13 +303,6 @@ declare module '@tanstack/react-router' {
       path: ''
       fullPath: '/'
       preLoaderRoute: typeof AuthenticatedRouteRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/after-10th': {
@@ -347,13 +340,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CareersRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/exams': {
       id: '/exams'
       path: '/exams'
@@ -368,11 +354,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ExploreRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/forgot-password': {
+      id: '/forgot-password'
+      path: '/forgot-password'
+      fullPath: '/forgot-password'
+      preLoaderRoute: typeof ForgotPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/login': {
       id: '/login'
       path: '/login'
       fullPath: '/login'
       preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reset-password': {
+      id: '/reset-password'
+      path: '/reset-password'
+      fullPath: '/reset-password'
+      preLoaderRoute: typeof ResetPasswordRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/resources': {
@@ -480,16 +480,16 @@ const ExamsRouteWithChildren = ExamsRoute._addFileChildren(ExamsRouteChildren)
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
-  AboutRoute: AboutRoute,
   After10thRoute: After10thRoute,
   After12thRoute: After12thRoute,
   AiGuideRoute: AiGuideRoute,
   AssessmentRoute: AssessmentRoute,
   CareersRoute: CareersRouteWithChildren,
-  ContactRoute: ContactRoute,
   ExamsRoute: ExamsRouteWithChildren,
   ExploreRoute: ExploreRoute,
+  ForgotPasswordRoute: ForgotPasswordRoute,
   LoginRoute: LoginRoute,
+  ResetPasswordRoute: ResetPasswordRoute,
   ResourcesRoute: ResourcesRoute,
   RoadmapsRoute: RoadmapsRoute,
   SavedRoute: SavedRoute,

@@ -13,21 +13,32 @@ export const Route = createFileRoute("/after-10th")({
 function After10th() {
   const guide = stageGuides?.after_10th;
   const icons = [GraduationCap, BookOpen, BookOpen, Wrench, School];
-  const tones = ["bg-primary/10 text-primary", "bg-teal/15 text-teal", "bg-violet/15 text-violet", "bg-amber/20 text-amber-700", "bg-coral/15 text-coral"];
+  const tones = [
+    "bg-primary/10 text-primary",
+    "bg-teal/15 text-teal",
+    "bg-violet/15 text-violet",
+    "bg-amber/20 text-amber-700",
+    "bg-coral/15 text-coral",
+  ];
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10">
       <header className="mb-8">
-        <h1 className="text-4xl font-extrabold text-navy md:text-5xl">{guide?.title || "After 10th: choosing your path"}</h1>
+        <h1 className="text-4xl font-extrabold text-navy md:text-5xl">
+          {guide?.title || "After 10th: choosing your path"}
+        </h1>
         <p className="mt-3 max-w-3xl text-lg text-muted-foreground">
-          {guide?.intro || "Class 10 is your first big choice, but it does not lock your future. Pick based on what you enjoy and what you are good at."}
+          {guide?.intro ||
+            "Class 10 is your first big choice, but it does not lock your future. Pick based on what you enjoy and what you are good at."}
         </p>
-        <p className="mt-2 text-sm text-muted-foreground">Note: Content is from draft data for guidance only. Always confirm on official sources.</p>
+        <p className="mt-2 text-sm text-muted-foreground">
+          Note: Content is from draft data for guidance only. Always confirm on official sources.
+        </p>
       </header>
 
       <section className="grid gap-5 md:grid-cols-2">
         {(guide?.options || []).map((opt: any, idx: number) => {
-          const Icon = icons[idx % icons.length];
+          const Icon = icons[idx % icons.length]!;
           const tone = tones[idx % tones.length];
           return (
             <article key={idx} className="rounded-3xl bg-card p-6 shadow-card">
