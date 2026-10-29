@@ -1,27 +1,34 @@
-# Welcome to your Lovable project
+# CareerCompass India
 
-This project was built with [Lovable](https://lovable.dev).
+CareerCompass India helps students explore education and career pathways, including options after Class 10 and Class 12, entrance exams, and career roadmaps.
 
-## Build with Lovable
+## Explore the project
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+- Education and career guidance for students in India
+- Career profiles, exam information, and learning resources
+- English and Kannada language support
 
 ## Development
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+Install Node.js and npm, then clone the repository and install its dependencies:
 
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+git clone https://github.com/naveenkumarbuilds-stack/career-compass.git
+cd career-compass
+npm ci
+```
+
+Copy `.env.example` to `.env` and enter your Supabase project's public configuration. Keep `.env` out of version control.
+
+Start the development server:
+
+```sh
 npm run dev
 ```
 
-## Built with
+To create a production build, run `npm run build`. To run the automated tests, use `npm test`.
+
+## Technology stack
 
 - TanStack Start
 - TypeScript
